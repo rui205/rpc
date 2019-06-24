@@ -9,7 +9,7 @@
 #include "Dao.h"
 #include "TcpServer.h"
 #include "MemoryPool.h"
-
+#include "DynamicThreadPool.h"
 
 void setGoogleLogging() {
     FLAGS_alsologtostderr = true;
@@ -143,11 +143,17 @@ void test_list() {
 }
 	
 
+void test_dynamic_thread_pool() {
+
+}
+
+
 int main() {
 	setGoogleLogging();
 	//event_enable_debug_logging(EVENT_DBG_ALL);
 
-	test_list();
+	test_dynamic_thread_pool();
+	//test_list();
 	//
 	rpc::pool_mgr_t pool_mgr;
 	pool_mgr.capacity_ = 1002;

@@ -1,4 +1,4 @@
-# Install script for directory: /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC
+# Install script for directory: /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

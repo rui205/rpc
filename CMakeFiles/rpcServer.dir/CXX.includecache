@@ -6,19 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Channel.cpp
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Channel.cpp
 unistd.h
 -
 Channel.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Channel.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Channel.h
 
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Channel.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Channel.h
 TaskQueue.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/TaskQueue.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TaskQueue.h
 libevent/event.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/libevent/event.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/libevent/event.h
 
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Dao.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Dao.h
 map
 -
 vector
@@ -28,49 +28,69 @@ unordered_map
 mysql/mysql.h
 -
 hiredis/hiredis.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/hiredis/hiredis.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/hiredis/hiredis.h
 libevent/event2/util.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/libevent/event2/util.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/libevent/event2/util.h
 libevent/event2/event.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/libevent/event2/event.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/libevent/event2/event.h
 hiredis/adapters/libevent.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/hiredis/adapters/libevent.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/hiredis/adapters/libevent.h
 
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/MemoryPool.cpp
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/DynamicThreadPool.cpp
+DynamicThreadPool.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/DynamicThreadPool.h
+
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/DynamicThreadPool.h
+thread
+-
+list
+-
+queue
+-
+memory
+-
+mutex
+-
+condition_variable
+-
+ThreadPoolInterface.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/ThreadPoolInterface.h
+
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/MemoryPool.cpp
 assert.h
 -
 MemoryPool.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/MemoryPool.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/MemoryPool.h
 glog/logging.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/glog/logging.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/glog/logging.h
 
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/MemoryPool.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/MemoryPool.h
 stdio.h
 -
 sys/queue.h
 -
 
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Policy.cpp
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Policy.cpp
 MemoryPool.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/MemoryPool.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/MemoryPool.h
 glog/logging.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/glog/logging.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/glog/logging.h
 
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/TaskQueue.cpp
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TaskQueue.cpp
 assert.h
 -
 stdlib.h
 -
 TaskQueue.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/TaskQueue.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TaskQueue.h
 
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/TaskQueue.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TaskQueue.h
 mutex
 -
 Util.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Util.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Util.h
 
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/TcpServer.cpp
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TcpServer.cpp
 sys/socket.h
 -
 netinet/in.h
@@ -78,45 +98,51 @@ netinet/in.h
 arpa/inet.h
 -
 TcpServer.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/TcpServer.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TcpServer.h
 glog/logging.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/glog/logging.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/glog/logging.h
 
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/TcpServer.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TcpServer.h
 pthread.h
 -
 string
 -
 Channel.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Channel.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Channel.h
 libevent/event2/listener.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/libevent/event2/listener.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/libevent/event2/listener.h
 
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Util.cpp
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/ThreadPoolInterface.h
+functional
+-
+
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Util.cpp
 Util.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Util.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Util.h
 
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Util.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Util.h
 string
 -
 list
 -
 
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/test.cpp
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/test.cpp
 iostream
 -
 sys/queue.h
 -
 gflags/gflags.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/gflags/gflags.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/gflags/gflags.h
 glog/logging.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/glog/logging.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/glog/logging.h
 Dao.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Dao.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Dao.h
 TcpServer.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/TcpServer.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TcpServer.h
 MemoryPool.h
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/MemoryPool.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/MemoryPool.h
+DynamicThreadPool.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/DynamicThreadPool.h
 
 include/gflags/gflags.h
 string

@@ -43,10 +43,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC
+CMAKE_SOURCE_DIR = /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC
+CMAKE_BINARY_DIR = /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc
 
 # Include any dependencies generated for this target.
 include CMakeFiles/rpcServer.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/rpcServer.dir/flags.make
 
 CMakeFiles/rpcServer.dir/rpc/Util.cpp.o: CMakeFiles/rpcServer.dir/flags.make
 CMakeFiles/rpcServer.dir/rpc/Util.cpp.o: rpc/Util.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/rpcServer.dir/rpc/Util.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpcServer.dir/rpc/Util.cpp.o -c /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Util.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/rpcServer.dir/rpc/Util.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpcServer.dir/rpc/Util.cpp.o -c /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Util.cpp
 
 CMakeFiles/rpcServer.dir/rpc/Util.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpcServer.dir/rpc/Util.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Util.cpp > CMakeFiles/rpcServer.dir/rpc/Util.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Util.cpp > CMakeFiles/rpcServer.dir/rpc/Util.cpp.i
 
 CMakeFiles/rpcServer.dir/rpc/Util.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpcServer.dir/rpc/Util.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Util.cpp -o CMakeFiles/rpcServer.dir/rpc/Util.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Util.cpp -o CMakeFiles/rpcServer.dir/rpc/Util.cpp.s
 
 CMakeFiles/rpcServer.dir/rpc/Util.cpp.o.requires:
 
@@ -81,18 +81,42 @@ CMakeFiles/rpcServer.dir/rpc/Util.cpp.o.provides: CMakeFiles/rpcServer.dir/rpc/U
 CMakeFiles/rpcServer.dir/rpc/Util.cpp.o.provides.build: CMakeFiles/rpcServer.dir/rpc/Util.cpp.o
 
 
+CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o: CMakeFiles/rpcServer.dir/flags.make
+CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o: rpc/DynamicThreadPool.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o -c /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/DynamicThreadPool.cpp
+
+CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/DynamicThreadPool.cpp > CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.i
+
+CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/DynamicThreadPool.cpp -o CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.s
+
+CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o.requires:
+
+.PHONY : CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o.requires
+
+CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o.provides: CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o.requires
+	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o.provides.build
+.PHONY : CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o.provides
+
+CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o.provides.build: CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o
+
+
 CMakeFiles/rpcServer.dir/rpc/Policy.cpp.o: CMakeFiles/rpcServer.dir/flags.make
 CMakeFiles/rpcServer.dir/rpc/Policy.cpp.o: rpc/Policy.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/rpcServer.dir/rpc/Policy.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpcServer.dir/rpc/Policy.cpp.o -c /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Policy.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/rpcServer.dir/rpc/Policy.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpcServer.dir/rpc/Policy.cpp.o -c /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Policy.cpp
 
 CMakeFiles/rpcServer.dir/rpc/Policy.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpcServer.dir/rpc/Policy.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Policy.cpp > CMakeFiles/rpcServer.dir/rpc/Policy.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Policy.cpp > CMakeFiles/rpcServer.dir/rpc/Policy.cpp.i
 
 CMakeFiles/rpcServer.dir/rpc/Policy.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpcServer.dir/rpc/Policy.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Policy.cpp -o CMakeFiles/rpcServer.dir/rpc/Policy.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Policy.cpp -o CMakeFiles/rpcServer.dir/rpc/Policy.cpp.s
 
 CMakeFiles/rpcServer.dir/rpc/Policy.cpp.o.requires:
 
@@ -107,16 +131,16 @@ CMakeFiles/rpcServer.dir/rpc/Policy.cpp.o.provides.build: CMakeFiles/rpcServer.d
 
 CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.o: CMakeFiles/rpcServer.dir/flags.make
 CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.o: rpc/MemoryPool.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.o -c /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/MemoryPool.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.o -c /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/MemoryPool.cpp
 
 CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/MemoryPool.cpp > CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/MemoryPool.cpp > CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.i
 
 CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/MemoryPool.cpp -o CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/MemoryPool.cpp -o CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.s
 
 CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.o.requires:
 
@@ -131,16 +155,16 @@ CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.o.provides.build: CMakeFiles/rpcServ
 
 CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.o: CMakeFiles/rpcServer.dir/flags.make
 CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.o: rpc/TaskQueue.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.o -c /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/TaskQueue.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.o -c /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TaskQueue.cpp
 
 CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/TaskQueue.cpp > CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TaskQueue.cpp > CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.i
 
 CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/TaskQueue.cpp -o CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TaskQueue.cpp -o CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.s
 
 CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.o.requires:
 
@@ -155,16 +179,16 @@ CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.o.provides.build: CMakeFiles/rpcServe
 
 CMakeFiles/rpcServer.dir/rpc/Channel.cpp.o: CMakeFiles/rpcServer.dir/flags.make
 CMakeFiles/rpcServer.dir/rpc/Channel.cpp.o: rpc/Channel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/rpcServer.dir/rpc/Channel.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpcServer.dir/rpc/Channel.cpp.o -c /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Channel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/rpcServer.dir/rpc/Channel.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpcServer.dir/rpc/Channel.cpp.o -c /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Channel.cpp
 
 CMakeFiles/rpcServer.dir/rpc/Channel.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpcServer.dir/rpc/Channel.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Channel.cpp > CMakeFiles/rpcServer.dir/rpc/Channel.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Channel.cpp > CMakeFiles/rpcServer.dir/rpc/Channel.cpp.i
 
 CMakeFiles/rpcServer.dir/rpc/Channel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpcServer.dir/rpc/Channel.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Channel.cpp -o CMakeFiles/rpcServer.dir/rpc/Channel.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Channel.cpp -o CMakeFiles/rpcServer.dir/rpc/Channel.cpp.s
 
 CMakeFiles/rpcServer.dir/rpc/Channel.cpp.o.requires:
 
@@ -179,16 +203,16 @@ CMakeFiles/rpcServer.dir/rpc/Channel.cpp.o.provides.build: CMakeFiles/rpcServer.
 
 CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o: CMakeFiles/rpcServer.dir/flags.make
 CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o: rpc/TcpServer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o -c /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/TcpServer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o -c /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TcpServer.cpp
 
 CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/TcpServer.cpp > CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TcpServer.cpp > CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.i
 
 CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/TcpServer.cpp -o CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TcpServer.cpp -o CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.s
 
 CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o.requires:
 
@@ -203,16 +227,16 @@ CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o.provides.build: CMakeFiles/rpcServe
 
 CMakeFiles/rpcServer.dir/rpc/test.cpp.o: CMakeFiles/rpcServer.dir/flags.make
 CMakeFiles/rpcServer.dir/rpc/test.cpp.o: rpc/test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/rpcServer.dir/rpc/test.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpcServer.dir/rpc/test.cpp.o -c /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/rpcServer.dir/rpc/test.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpcServer.dir/rpc/test.cpp.o -c /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/test.cpp
 
 CMakeFiles/rpcServer.dir/rpc/test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpcServer.dir/rpc/test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/test.cpp > CMakeFiles/rpcServer.dir/rpc/test.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/test.cpp > CMakeFiles/rpcServer.dir/rpc/test.cpp.i
 
 CMakeFiles/rpcServer.dir/rpc/test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpcServer.dir/rpc/test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/test.cpp -o CMakeFiles/rpcServer.dir/rpc/test.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/test.cpp -o CMakeFiles/rpcServer.dir/rpc/test.cpp.s
 
 CMakeFiles/rpcServer.dir/rpc/test.cpp.o.requires:
 
@@ -228,6 +252,7 @@ CMakeFiles/rpcServer.dir/rpc/test.cpp.o.provides.build: CMakeFiles/rpcServer.dir
 # Object files for target rpcServer
 rpcServer_OBJECTS = \
 "CMakeFiles/rpcServer.dir/rpc/Util.cpp.o" \
+"CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o" \
 "CMakeFiles/rpcServer.dir/rpc/Policy.cpp.o" \
 "CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.o" \
 "CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.o" \
@@ -239,6 +264,7 @@ rpcServer_OBJECTS = \
 rpcServer_EXTERNAL_OBJECTS =
 
 rpcServer: CMakeFiles/rpcServer.dir/rpc/Util.cpp.o
+rpcServer: CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o
 rpcServer: CMakeFiles/rpcServer.dir/rpc/Policy.cpp.o
 rpcServer: CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.o
 rpcServer: CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.o
@@ -252,7 +278,7 @@ rpcServer: lib/libevent/libevent.a
 rpcServer: lib/hiredis/libhiredis.a
 rpcServer: lib/mysql/libmysqlclient.so.20
 rpcServer: CMakeFiles/rpcServer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable rpcServer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable rpcServer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rpcServer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -261,6 +287,7 @@ CMakeFiles/rpcServer.dir/build: rpcServer
 .PHONY : CMakeFiles/rpcServer.dir/build
 
 CMakeFiles/rpcServer.dir/requires: CMakeFiles/rpcServer.dir/rpc/Util.cpp.o.requires
+CMakeFiles/rpcServer.dir/requires: CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o.requires
 CMakeFiles/rpcServer.dir/requires: CMakeFiles/rpcServer.dir/rpc/Policy.cpp.o.requires
 CMakeFiles/rpcServer.dir/requires: CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.o.requires
 CMakeFiles/rpcServer.dir/requires: CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.o.requires
@@ -275,6 +302,6 @@ CMakeFiles/rpcServer.dir/clean:
 .PHONY : CMakeFiles/rpcServer.dir/clean
 
 CMakeFiles/rpcServer.dir/depend:
-	cd /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles/rpcServer.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles/rpcServer.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rpcServer.dir/depend
 

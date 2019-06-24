@@ -7,6 +7,10 @@ CMakeFiles/rpcServer.dir/rpc/Channel.cpp.o: rpc/TaskQueue.h
 CMakeFiles/rpcServer.dir/rpc/Channel.cpp.o: rpc/Util.h
 CMakeFiles/rpcServer.dir/rpc/Channel.cpp.o: include/libevent/event.h
 
+CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o: rpc/DynamicThreadPool.cpp
+CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o: rpc/DynamicThreadPool.h
+CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o: rpc/ThreadPoolInterface.h
+
 CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.o: rpc/MemoryPool.cpp
 CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.o: rpc/MemoryPool.h
 CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.o: include/gflags/gflags.h
@@ -48,9 +52,11 @@ CMakeFiles/rpcServer.dir/rpc/Util.cpp.o: rpc/Util.h
 
 CMakeFiles/rpcServer.dir/rpc/test.cpp.o: rpc/Channel.h
 CMakeFiles/rpcServer.dir/rpc/test.cpp.o: rpc/Dao.h
+CMakeFiles/rpcServer.dir/rpc/test.cpp.o: rpc/DynamicThreadPool.h
 CMakeFiles/rpcServer.dir/rpc/test.cpp.o: rpc/MemoryPool.h
 CMakeFiles/rpcServer.dir/rpc/test.cpp.o: rpc/TaskQueue.h
 CMakeFiles/rpcServer.dir/rpc/test.cpp.o: rpc/TcpServer.h
+CMakeFiles/rpcServer.dir/rpc/test.cpp.o: rpc/ThreadPoolInterface.h
 CMakeFiles/rpcServer.dir/rpc/test.cpp.o: rpc/Util.h
 CMakeFiles/rpcServer.dir/rpc/test.cpp.o: rpc/test.cpp
 CMakeFiles/rpcServer.dir/rpc/test.cpp.o: include/gflags/gflags.h

@@ -1,3 +1,3 @@
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles/rebuild_cache.dir
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles/edit_cache.dir
-/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles/rpcServer.dir
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles/rebuild_cache.dir
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles/edit_cache.dir
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles/rpcServer.dir

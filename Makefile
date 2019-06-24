@@ -48,10 +48,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC
+CMAKE_SOURCE_DIR = /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC
+CMAKE_BINARY_DIR = /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -149,6 +149,33 @@ rpc/Channel.s: rpc/Channel.cpp.s
 rpc/Channel.cpp.s:
 	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/Channel.cpp.s
 .PHONY : rpc/Channel.cpp.s
+
+rpc/DynamicThreadPool.o: rpc/DynamicThreadPool.cpp.o
+
+.PHONY : rpc/DynamicThreadPool.o
+
+# target to build an object file
+rpc/DynamicThreadPool.cpp.o:
+	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o
+.PHONY : rpc/DynamicThreadPool.cpp.o
+
+rpc/DynamicThreadPool.i: rpc/DynamicThreadPool.cpp.i
+
+.PHONY : rpc/DynamicThreadPool.i
+
+# target to preprocess a source file
+rpc/DynamicThreadPool.cpp.i:
+	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.i
+.PHONY : rpc/DynamicThreadPool.cpp.i
+
+rpc/DynamicThreadPool.s: rpc/DynamicThreadPool.cpp.s
+
+.PHONY : rpc/DynamicThreadPool.s
+
+# target to generate assembly for a file
+rpc/DynamicThreadPool.cpp.s:
+	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.s
+.PHONY : rpc/DynamicThreadPool.cpp.s
 
 rpc/MemoryPool.o: rpc/MemoryPool.cpp.o
 
@@ -324,6 +351,9 @@ help:
 	@echo "... rpc/Channel.o"
 	@echo "... rpc/Channel.i"
 	@echo "... rpc/Channel.s"
+	@echo "... rpc/DynamicThreadPool.o"
+	@echo "... rpc/DynamicThreadPool.i"
+	@echo "... rpc/DynamicThreadPool.s"
 	@echo "... rpc/MemoryPool.o"
 	@echo "... rpc/MemoryPool.i"
 	@echo "... rpc/MemoryPool.s"

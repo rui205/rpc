@@ -4,13 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Channel.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles/rpcServer.dir/rpc/Channel.cpp.o"
-  "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/MemoryPool.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.o"
-  "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Policy.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles/rpcServer.dir/rpc/Policy.cpp.o"
-  "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/TaskQueue.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.o"
-  "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/TcpServer.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o"
-  "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/Util.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles/rpcServer.dir/rpc/Util.cpp.o"
-  "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/rpc/test.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles/rpcServer.dir/rpc/test.cpp.o"
+  "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Channel.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles/rpcServer.dir/rpc/Channel.cpp.o"
+  "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/DynamicThreadPool.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o"
+  "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/MemoryPool.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.o"
+  "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Policy.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles/rpcServer.dir/rpc/Policy.cpp.o"
+  "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TaskQueue.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.o"
+  "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TcpServer.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o"
+  "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Util.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles/rpcServer.dir/rpc/Util.cpp.o"
+  "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/test.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles/rpcServer.dir/rpc/test.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

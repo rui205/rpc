@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++11 -O3 -pipe -Wall -g -W -fPIC -fstrict-aliasing -Wno-inval
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/include 
+CXX_INCLUDES = -I/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/include 
 

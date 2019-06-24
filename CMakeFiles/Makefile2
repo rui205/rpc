@@ -54,10 +54,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC
+CMAKE_SOURCE_DIR = /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC
+CMAKE_BINARY_DIR = /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc
 
 #=============================================================================
 # Target rules for target CMakeFiles/rpcServer.dir
@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC
 CMakeFiles/rpcServer.dir/all:
 	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/depend
 	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target rpcServer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target rpcServer"
 .PHONY : CMakeFiles/rpcServer.dir/all
 
 # Include target in all.
@@ -76,9 +76,9 @@ all: CMakeFiles/rpcServer.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/rpcServer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/rpcServer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles 0
 .PHONY : CMakeFiles/rpcServer.dir/rule
 
 # Convenience name for target.

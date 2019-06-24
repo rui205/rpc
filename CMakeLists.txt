@@ -4,7 +4,7 @@ project(rpcServer)
 
 
 include_directories(
-	/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/include
+	/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/include
 )
 
 find_package(GFLAGS REQUIRED)
@@ -33,6 +33,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lpthread -lgflags -lglog -levent")
 set(BUTIL_SOURCES
 	${PROJECT_SOURCE_DIR}/rpc/Util.cpp
 	#${PROJECT_SOURCE_DIR}/rpc/Dao.cpp
+	${PROJECT_SOURCE_DIR}/rpc/DynamicThreadPool.cpp
 	${PROJECT_SOURCE_DIR}/rpc/Policy.cpp
 	${PROJECT_SOURCE_DIR}/rpc/MemoryPool.cpp
 	${PROJECT_SOURCE_DIR}/rpc/TaskQueue.cpp
@@ -42,12 +43,11 @@ set(BUTIL_SOURCES
 )
 
 add_executable(${PROJECT_NAME} ${BUTIL_SOURCES})
-#target_link_libraries(butil /home/wangpeng/WorkSpaceForMe/PlatformForMe/Target/gflags/libgflags.a)
-target_link_libraries(rpcServer /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/lib/gflags/libgflags.a)
-target_link_libraries(rpcServer /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/lib/glog/libglog.a)
-target_link_libraries(rpcServer /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/lib/libevent/libevent.a)
-target_link_libraries(rpcServer /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/lib/hiredis/libhiredis.a)
-target_link_libraries(rpcServer /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/JSON_RPC/lib/mysql/libmysqlclient.so.20)
+target_link_libraries(rpcServer /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/lib/gflags/libgflags.a)
+target_link_libraries(rpcServer /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/lib/glog/libglog.a)
+target_link_libraries(rpcServer /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/lib/libevent/libevent.a)
+target_link_libraries(rpcServer /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/lib/hiredis/libhiredis.a)
+target_link_libraries(rpcServer /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/lib/mysql/libmysqlclient.so.20)
 
 
 #set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
