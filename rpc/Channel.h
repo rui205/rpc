@@ -8,7 +8,7 @@
 
 namespace rpc {
 
-class TcpServer;
+class TcpServerImpl;
 
 typedef struct thread {
 	pthread_t tid_;									/*thread id*/
@@ -19,7 +19,7 @@ typedef struct thread {
 	TaskQueue* task_queue_; 						/*task queue*/
 													/*dao*/
 	union {
-		TcpServer* server_;
+		TcpServerImpl* server_;
 	};
 } thread_t;
 

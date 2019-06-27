@@ -1,0 +1,12 @@
+Log file created at: 2019/06/28 00:48:50
+Running on machine: izm5e0bcvmlsicia7zrjysz
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0628 00:48:50.518271 21174 MemoryPool.cpp:45] iii: 4
+I0628 00:48:50.518612 21174 Policy.cpp:54] chunk_alloc__: 4096
+I0628 00:48:50.518633 21174 MemoryPool.cpp:45] iii: 4
+I0628 00:48:50.518647 21174 Policy.cpp:54] chunk_alloc__: 4096
+I0628 00:48:50.518658 21174 MemoryPool.cpp:45] iii: 4
+I0628 00:48:50.518672 21174 Policy.cpp:54] chunk_alloc__: 4096
+I0628 00:48:50.518682 21174 test.cpp:189] pool_mgr count: 139890748204771
+I0628 00:48:50.518693 21174 MemoryPool.cpp:128] pool name: test03
+I0628 00:48:50.518704 21174 MemoryPool.cpp:146] release pool ===

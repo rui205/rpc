@@ -17,12 +17,16 @@ static size_t pool_sizes[CACHING_POOL_ARRAY_SIZE] = {
 	40960,49125, 57344, 65535
 };
 
-size_t pool_get_capacity(pool_t* pool) {
-	return pool->capacity_;
+size_t get_pool_capacity(pool_t* pool) {
+	if (pool != NULL) {
+		return pool->capacity_;
+	} 
+
+	return 0;
 }
 
 pool_t* create_pool__(pool_factory_t* factory, const char* name, size_t init_size, size_t incr_size) {
-	int i = 0;
+	ssize_t i = 0;
 	
 	if (init_size <= pool_sizes[START_SIZE]) {
 		for (i = START_SIZE - 1; i >= 0 && pool_sizes[i] >= init_size; -- i) {
@@ -36,6 +40,7 @@ pool_t* create_pool__(pool_factory_t* factory, const char* name, size_t init_siz
 
 	pool_t* pool = NULL;
 	pool_mgr_t* pool_mgr = (pool_mgr_t*)factory;
+	
 
 	LOG(INFO) << "iii: " << i;	
 	if (i == CACHING_POOL_ARRAY_SIZE || TAILQ_EMPTY(&pool_mgr->free_pool_list_[i])) {
@@ -62,6 +67,7 @@ pool_t* create_pool__(pool_factory_t* factory, const char* name, size_t init_siz
 		pool->capacity_ = init_size;
 		pool->incr_size_ = incr_size;
 		strncpy(pool->name_, name, sizeof(pool->name_));
+		//pool_mgr->capacity_ += init_size;
 	} else {
 		LOG(INFO) << "=========the i: " << i;
 		pool = TAILQ_FIRST(&pool_mgr->free_pool_list_[i]);
@@ -69,8 +75,8 @@ pool_t* create_pool__(pool_factory_t* factory, const char* name, size_t init_siz
 		pool->incr_size_ = incr_size;
         strncpy(pool->name_, name, sizeof(pool->name_));
 
-		if (pool_mgr->capacity_ > pool_get_capacity(pool)) {
-			pool_mgr->capacity_ -= pool_get_capacity(pool);
+		if (pool_mgr->capacity_ > get_pool_capacity(pool)) {
+			pool_mgr->capacity_ -= get_pool_capacity(pool);
 		} else {
 			pool_mgr->capacity_ = 0;
 		}
@@ -83,15 +89,60 @@ pool_t* create_pool__(pool_factory_t* factory, const char* name, size_t init_siz
 	return pool;
 }
 
+void release_pool__(pool_factory_t* factory, pool_t* pool) {
+	if (factory == NULL || pool == NULL) {
+		return;
+	}
+
+	pool_mgr_t* pool_mgr = (pool_mgr_t*)factory;
+
+	int exist = 0;
+	pool_t* tmp = NULL;
+	TAILQ_FOREACH(tmp, &pool_mgr->used_pool_list_, entry) {
+		if (tmp == pool) {
+			LOG(INFO) << "pool name: " << tmp->name_;
+			exist = 1;
+			break;
+		}
+	}
+
+	if (exist == 0) {
+		return;
+	}
+
+	TAILQ_REMOVE(&pool_mgr->used_pool_list_, pool, entry);
+	-- pool_mgr->used_count_;
+
+	ssize_t i = (ssize_t)(void*)pool->data_;
+	if (i >= 16) {
+	
+	}
+
+	LOG(INFO) << "release pool ===";
+
+	size_t pool_capacity = get_pool_capacity(pool);
+	if (pool_capacity > pool_sizes[15] || 
+		(pool_capacity + pool_mgr->capacity_) > pool_mgr->max_capacity_) {
+
+	}
+
+	LOG(INFO) << "release i: " << i;
+
+	TAILQ_INSERT_TAIL(&pool_mgr->free_pool_list_[i], pool, entry);
+	pool_mgr->capacity_ += pool_capacity;
+}
+
 pool_t* create_pool(pool_factory_t* factory, const char* pool_name, size_t init_size, size_t incr_size) {
-	LOG(INFO) << "mid: " << factory;
-    pool_t* pool = (*factory->create_pool)(factory, pool_name, init_size, incr_size);
-    return pool;
+    return (*factory->create_pool)(factory, pool_name, init_size, incr_size);
+}
+
+void release_pool(pool_factory_t* factory, pool_t* pool) {
+	(*factory->release_pool)(factory, pool);
 }
 
 void pool_mgr_init(pool_mgr_t* pool_mgr, const pool_factory_policy_t* policy, size_t max_capacity) {
-//	memset(pool_mgr, 0, sizeof(*pool_mgr));
 	pool_mgr->max_capacity_ = max_capacity;
+	pthread_mutex_init(&pool_mgr->mutex_, NULL);
 
 	TAILQ_INIT(&pool_mgr->used_pool_list_);
 	for (int i = 0; i < CACHING_POOL_ARRAY_SIZE; ++ i) {
@@ -105,7 +156,7 @@ void pool_mgr_init(pool_mgr_t* pool_mgr, const pool_factory_policy_t* policy, si
 	memcpy(&pool_mgr->factory_.policy_, policy, sizeof(*policy));
 		
 	pool_mgr->factory_.create_pool = &create_pool__;
-//	pool_mgr->factory.release_pool = &release_pool_;
+	pool_mgr->factory_.release_pool = &release_pool__;
 //	pool_mgr->factory.dump_status = &dump_status__;
 //	pool_mgr->factory.on_chunk_alloc = &on_chunk_alloc__;
 //	pool_mgr->factory.on_chunk_free =  &on_chunk_free__;

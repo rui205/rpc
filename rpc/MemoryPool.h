@@ -2,6 +2,7 @@
 #define __MEMORY_POOL_H__
 
 #include <stdio.h>
+#include <pthread.h>
 #include <sys/queue.h>
 
 namespace rpc {
@@ -39,7 +40,10 @@ struct pool_s {
 	TAILQ_HEAD(, pool_chunk_s) chunk_list_;
 };
 
+size_t get_pool_capacity(pool_t* pool);
 pool_t* create_pool(pool_factory_t* factory, const char* pool_name, size_t init_size, size_t incr_size);
+void release_pool(pool_factory_t* factory, pool_t* pool);
+
 
 struct pool_factory_policy_s {
 	void* (*chunk_alloc)(pool_factory_t* factory, size_t size);
@@ -68,6 +72,7 @@ struct pool_mgr_s {
 	size_t used_count_;
 	size_t used_size_;
 	void* data_;
+	pthread_mutex_t mutex_;
 
 	TAILQ_HEAD(, pool_s) used_pool_list_;
 	TAILQ_HEAD(, pool_s) free_pool_list_[CACHING_POOL_ARRAY_SIZE];	

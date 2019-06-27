@@ -13,7 +13,7 @@ class DynamicThreadPool final: public ThreadPoolInterface {
 public:
     explicit DynamicThreadPool(int reserve_threads);
     ~DynamicThreadPool();
-    void add(const std::function<void()>& callback) override;
+    void add(const std::function<void(void*)>& callback) override;
 
 private:
     class DynamicThread {
@@ -39,8 +39,8 @@ private:
     std::mutex mutex_;
     std::condition_variable  cv_;
     std::condition_variable  shutdown_cv_;
-    std::queue<std::function<void()>> callbacks_;
-    std::list<DynamicThread*> dead_threads_;
+    std::queue<std::function<void(void*)>> callbacks_;          /*task queue*/ 
+    std::list<DynamicThread*> dead_threads_;                    
 };
 
 }/*end namespace rpc*/ 

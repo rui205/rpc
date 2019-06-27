@@ -143,8 +143,21 @@ void test_list() {
 }
 	
 
-void test_dynamic_thread_pool() {
+void test_task(void* arg) {
+	LOG(INFO) << "doing task";
+}
 
+void test_dynamic_thread_pool() {
+	rpc::DynamicThreadPool* thr_pool = new(std::nothrow) rpc::DynamicThreadPool(5);
+	if (thr_pool == NULL) {
+		LOG(ERROR) << "thread pool is nil";
+		return;
+	}
+	LOG(INFO) << "thread pool success";	
+
+	thr_pool->add(test_task);
+
+	sleep(3);
 }
 
 
@@ -152,18 +165,30 @@ int main() {
 	setGoogleLogging();
 	//event_enable_debug_logging(EVENT_DBG_ALL);
 
-	test_dynamic_thread_pool();
+//	test_dynamic_thread_pool();
 	//test_list();
 	//
 	rpc::pool_mgr_t pool_mgr;
-	pool_mgr.capacity_ = 1002;
-	rpc::pool_mgr_init(&pool_mgr, NULL, 4096);
+	//pool_mgr.capacity_ = 1002;
+	rpc::pool_mgr_init(&pool_mgr, NULL, 8192);
 	rpc::pool_t* pool = rpc::create_pool(&pool_mgr.factory_, "test01", 8192, 4096);
 	if (pool == NULL) {
-
+		LOG(ERROR) << "1111111 is nil";
 	}
 
 	rpc::pool_t* pool2 = rpc::create_pool(&pool_mgr.factory_, "test02", 8192, 4096);
+	if (pool2 == NULL) {
+		LOG(ERROR) << "2222222 is nil";
+	}
+
+	rpc::pool_t* pool3 = rpc::create_pool(&pool_mgr.factory_, "test03", 8192, 2048);
+	if (pool3 == NULL)  {
+		LOG(ERROR) << "3333333 is nil";
+	}
+
+	LOG(INFO) << "pool_mgr count: " << pool_mgr.used_count_;
+
+	rpc::release_pool(&pool_mgr.factory_, pool3);
 
 	//
 	

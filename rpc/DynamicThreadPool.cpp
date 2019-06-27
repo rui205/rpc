@@ -1,4 +1,5 @@
 #include "DynamicThreadPool.h"
+#include "glog/logging.h"
 
 namespace rpc {
 
@@ -27,7 +28,7 @@ DynamicThreadPool::~DynamicThreadPool() {
     reapThreads(&dead_threads_);
 }
 
-void DynamicThreadPool::add(const std::function<void()>& callback) {
+void DynamicThreadPool::add(const std::function<void(void*)>& callback) {
     std::lock_guard<std::mutex> lock(mutex_);
     callbacks_.push(callback);
     if (threads_waiting_ == 0) {
@@ -59,7 +60,7 @@ void DynamicThreadPool::threadFunc() {
             auto cb = callbacks_.front();
             callbacks_.pop();
             lock.unlock();
-            cb();
+            cb(NULL);
         } else if (shutdown_) {
             break;
         }
@@ -73,6 +74,7 @@ void DynamicThreadPool::reapThreads(std::list<DynamicThread*>* tlist) {
 }
 
 void DynamicThreadPool::DynamicThread::threadFunc() {
+    LOG(INFO) << "dynamic thread func";
     pool_->threadFunc();
     std::unique_lock<std::mutex> lock(pool_->mutex_);
  //   std::lock_guard<std::mutex> lock(pool_->mutex_);
@@ -88,6 +90,7 @@ void DynamicThreadPool::DynamicThread::threadFunc() {
 DynamicThreadPool::DynamicThread::DynamicThread(DynamicThreadPool* pool)
     : pool_(pool)
     , thd_(new std::thread(&DynamicThreadPool::DynamicThread::threadFunc, this)) {
+    LOG(INFO) << "dynamic thread ...";
 }
 
 DynamicThreadPool::DynamicThread::~DynamicThread() {

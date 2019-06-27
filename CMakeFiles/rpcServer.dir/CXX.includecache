@@ -39,6 +39,8 @@ hiredis/adapters/libevent.h
 /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/DynamicThreadPool.cpp
 DynamicThreadPool.h
 /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/DynamicThreadPool.h
+glog/logging.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/glog/logging.h
 
 /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/DynamicThreadPool.h
 thread
@@ -66,6 +68,8 @@ glog/logging.h
 
 /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/MemoryPool.h
 stdio.h
+-
+pthread.h
 -
 sys/queue.h
 -
@@ -107,10 +111,16 @@ pthread.h
 -
 string
 -
+TcpServerInterface.h
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TcpServerInterface.h
 Channel.h
 /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Channel.h
 libevent/event2/listener.h
 /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/libevent/event2/listener.h
+
+/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TcpServerInterface.h
+functional
+-
 
 /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/ThreadPoolInterface.h
 functional
