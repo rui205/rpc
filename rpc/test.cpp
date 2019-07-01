@@ -58,57 +58,70 @@ void setGoogleLogging() {
     //     }
     // }
 
-void test01_read_callback(rpc::Channel* chan, void* arg) {
-	if (chan == NULL) {
-		return;
-	}
+class test_echo_server final: public rpc::TcpServerImpl {
+public:
+	test_echo_server(): rpc::TcpServerImpl(std::string("0.0.0.0:9900"), 10) {}
+	~test_echo_server() {}
+	void Read(rpc::Channel* chan, void* arg) {
+		if (chan == NULL) {
+			return;
+		}
 
-	LOG(INFO) << "user read callback function";
+		LOG(INFO) << "user read callback function";
 
-	int len = chan->getReadBufferLength();
-	if (len < 8) {
-		return;
-	}
+		int len = chan->getReadBufferLength();
+		if (len < 8) {
+			return;
+		}
 
-	uint64_t pkgHeader = 0;
-	
-	int rc = chan->copyToBuffer((char*)&pkgHeader, 8);
-	if (rc < 8) {
-		return;
-	}
-
-	int pkgTotal = ntohl(pkgHeader);
-	LOG(INFO) << "pkg total length: " << pkgTotal;
-	LOG(INFO) << "read buffer: " << chan->getReadBufferLength();
-	
-	if (chan->getReadBufferLength() < 8 + pkgTotal) {
-		return;
-	}
-
-	char* buffer = (char*)calloc(1, pkgTotal);
-	if (buffer == NULL) {
-		LOG(ERROR) << "user read callback calloc met error: " << strerror(errno);
-		return;
-	}
-	
-	int readTotal = 0;
-	chan->readToBuffer((char*)&pkgHeader, 8);
-	LOG(INFO) << "the first read buffer: " << pkgHeader;
+		uint64_t pkgHeader = 0;
 		
-	memset(buffer, 0, pkgTotal);
-	readTotal = chan->readToBuffer(buffer, pkgTotal);
-	if (readTotal != pkgTotal) {
-		LOG(ERROR) << "the readTotal: " << readTotal << "  pkgTotal: " << pkgTotal;
+		int rc = chan->copyToBuffer((char*)&pkgHeader, 8);
+		if (rc < 8) {
+			return;
+		}
+
+		int pkgTotal = ntohl(pkgHeader);
+		LOG(INFO) << "pkg total length: " << pkgTotal;
+		LOG(INFO) << "read buffer: " << chan->getReadBufferLength();
+		
+		if (chan->getReadBufferLength() < 8 + pkgTotal) {
+			return;
+		}
+
+		char* buffer = (char*)calloc(1, pkgTotal);
+		if (buffer == NULL) {
+			LOG(ERROR) << "user read callback calloc met error: " << strerror(errno);
+			return;
+		}
+		
+		int readTotal = 0;
+		chan->readToBuffer((char*)&pkgHeader, 8);
+		LOG(INFO) << "the first read buffer: " << pkgHeader;
+			
+		memset(buffer, 0, pkgTotal);
+		readTotal = chan->readToBuffer(buffer, pkgTotal);
+		if (readTotal != pkgTotal) {
+			LOG(ERROR) << "the readTotal: " << readTotal << "  pkgTotal: " << pkgTotal;
+		}
+		
+		LOG(INFO) << "buffer: " << buffer;
+
+		// doing...
+		//
+
+		free(buffer);
+		buffer = NULL;
 	}
-	
-	LOG(INFO) << "buffer: " << buffer;
 
-	// doing...
-	//
+	void Write(rpc::Channel* chan, void* arg) {
+		LOG(INFO) << "echo_server write";
+	}
 
-	free(buffer);
-	buffer = NULL;
-}
+	void Error(rpc::Channel* chan, void* arg) {
+		LOG(INFO) << "echo_server error";
+	}
+};
 
 struct node {
 	int a;
@@ -160,11 +173,17 @@ void test_dynamic_thread_pool() {
 	sleep(3);
 }
 
+void test_echo() {
+	test_echo_server* server = new test_echo_server();
+	server->Start();
+}
 
 int main() {
 	setGoogleLogging();
 	//event_enable_debug_logging(EVENT_DBG_ALL);
 
+	test_echo();
+	return 0;
 //	test_dynamic_thread_pool();
 	//test_list();
 	//

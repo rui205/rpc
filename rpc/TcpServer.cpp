@@ -435,7 +435,43 @@ void TcpServer::start() {
 #endif
 
 TcpServerImpl::TcpServerImpl(std::string addr, int thread_num) {
+	if (addr.length() <= 0 || thread_num <= 1) {
+		exit(-1);
+	}
 
+	/*split the addr host:port*/
+	std::string c = ":";
+	std::list<std::string> res;	
+	split(addr, res, c);
+	ip_ = res.front();
+	res.pop_front();
+	port_ = std::stoi(res.front());
+	res.pop_front();
+
+	LOG(INFO) << "ip_: " << ip_ << "  port_: " << port_;
+	
+	/*init listener*/
+	listener_ = NULL;
+
+	/*init thread number*/
+	threads_ = thread_num;
+
+	/*init thread pool*/
+	thread_pool_ = new thread_t[threads_];
+	
+	/*init master thread*/
+	master_ = new(std::nothrow) thread_t;
+	master_->tid_ = pthread_self();
+    struct event_config* config = event_config_new();
+    event_config_set_flag(config, EVENT_BASE_FLAG_NOLOCK);
+    event_config_set_flag(config, EVENT_BASE_FLAG_EPOLL_USE_CHANGELIST);
+	master_->base_ = event_base_new_with_config(config);
+	event_safe_free(config, event_config_free);
+
+	/**/
+	counts_ = 0;
+	last_index_ = -1;
+	init_thread_count_ = 0;
 }
 
 TcpServerImpl::~TcpServerImpl() {
@@ -492,6 +528,18 @@ void TcpServerImpl::Stop() {
 
 }
 
+void TcpServerImpl::Read(Channel* chan, void* arg) {
+	// NOTHING TODO
+}
+
+void TcpServerImpl::Write(Channel* chan, void* arg) {
+	// NOTHING TODO
+}
+
+void TcpServerImpl::Error(Channel* chan, void* arg) {
+	// NOTHING TODO
+}
+
 void TcpServerImpl::SettingCallback(callback_t readcb, callback_t writecb, callback_t errorcb) {
 	if (readcb == NULL && writecb == NULL && errorcb == NULL) {
 		return;
@@ -510,7 +558,7 @@ void TcpServerImpl::Notify(int fd, short events, void* arg) {
     thread_t* thr = static_cast<thread_t*>(arg);
     char buf[1];
 
-    int rc = read(fd, buf, sizeof(buf));
+    int rc = ::read(fd, buf, sizeof(buf));
     if (rc != 1) {
         /*can not close fd*/
         LOG(ERROR) << "notify read met error: " << strerror(errno);
@@ -589,7 +637,7 @@ void TcpServerImpl::Dispatch(int fd, int events, void* arg) {
 
     /*notify the corresponding thread*/
     char buf[1] = { 'c' };
-    int rc = write(thr->notify_send_fd_, buf, sizeof(buf));
+    int rc = ::write(thr->notify_send_fd_, buf, sizeof(buf));
     if (rc != sizeof(buf)) {
         /*do nothing and wait the next success write*/
         LOG(ERROR) << "dispatch write met error: " << strerror(errno);
@@ -744,7 +792,7 @@ Channel* TcpServerImpl::CreateChannel(int fd, short events, struct event_base* b
     bufferevent_setcb(tmp, BufferReadCallback, BufferWriteCallback, BufferErrorCallback, (void*)chan);
 
     /*the channel timeout*/
-    struct timeval tv = { 4*3600, 0 };
+    struct timeval tv = { 10, 0 };
     bufferevent_set_timeouts(tmp, &tv, NULL);
 
     chan->setBufferevent(tmp);
@@ -763,41 +811,67 @@ void TcpServerImpl::BufferReadCallback(struct bufferevent* bev, void* arg) {
 
     LOG(INFO) << "internal bufferevent read callback";
 
+	//read(chan, NULL);
+	
     thread_t* thr = chan->getChannelThread();
-    if (thr->server_->read_callback_) {
+	thr->server_->Read(chan, NULL);
+/*
+	if (thr->server_->read_callback_) {
         thr->server_->read_callback_(chan, NULL);
     }
+    */
 }
 
 void TcpServerImpl::BufferWriteCallback(struct bufferevent* bev, void* arg) {
+	Channel* chan = static_cast<Channel*>(arg);
+	if (chan == NULL) {
+		return;
+	}
 
-}
+	LOG(INFO) << "internal bufferevent write callback";
 
-void TcpServerImpl::BufferErrorCallback(struct bufferevent* bev, short error_events, void* arg) {
-
-}
-
-/*
-class TcpServerImpl final: public TcpServerInterface {
-
-
-public:
-	callback_t read_callback_;
-	callback_t write_callback_;
-	callback_t error_callback_;
-	
-private:
-	std::string ip_;
-	int port_;
-	int counts_;
-	int threads_;
-	int last_index_;
-	int init_thread_count_;
-	struct evconnlistener* listener_;
-	thread_t* master_;
-	thread_t* thread_pool_;
-	pthread_cond_t cond_var_;
-	pthread_mutex_t mutex_;
-};
+	thread_t* thr = chan->getChannelThread();
+	thr->server_->Write(chan, NULL);
+/*	if (thr->server_->write_callback_) {
+		thr->server_->write_callback_(chan, NULL);
+	}
 */
+}
+
+void TcpServerImpl::BufferErrorCallback(struct bufferevent* bev, short events, void* arg) {
+	Channel* chan = static_cast<Channel*>(arg);
+	if (chan == NULL) {
+		return;
+	}
+
+	LOG(INFO) << "internal bufferevent error callback";
+
+
+	if (events & BEV_EVENT_EOF) {
+		LOG(INFO) << "peer closed";
+	} else if (events & BEV_EVENT_TIMEOUT) {
+		LOG(INFO) << "channel timeout";
+	} else if (events & BEV_EVENT_ERROR) {
+		LOG(INFO) << "unrecoverable error";
+	} else {
+		LOG(INFO) << "unknow error";
+	}
+
+	thread_t* thr = chan->getChannelThread();
+	thr->server_->Error(chan, NULL);
+/*	
+	if (thr->server_->error_callback_) {
+		thr->server_->error_callback_(chan, NULL);
+	}
+*/
+	delete chan;
+	chan = NULL;
+	/*	
+	struct bufferevent* tmp = chan->getBufferevent();
+	if (tmp != NULL) {
+		event_safe_free(tmp, bufferevent_free);
+	}
+	*/	
+}
+
 }/*end namespace rpc*/

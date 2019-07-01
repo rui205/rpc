@@ -15,7 +15,7 @@ class TcpServerInterface {
 public:
 	virtual ~TcpServerInterface() {}				
 	virtual void SettingCallback(callback_t readcb, callback_t writecb, callback_t errorcb) = 0;
-	virtual void RegisterService() = 0;
+//	virtual void RegisterService() = 0;
 	virtual void Start() = 0;
 	virtual void Stop() = 0;
 };
