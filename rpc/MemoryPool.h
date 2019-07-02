@@ -78,8 +78,12 @@ struct pool_mgr_s {
 	TAILQ_HEAD(, pool_s) free_pool_list_[CACHING_POOL_ARRAY_SIZE];	
 };
 
-/**/
+/*pool manager public interface*/
 void pool_mgr_init(pool_mgr_t* pool_mgr, const pool_factory_policy_t* policy, size_t max_capacity);
+void pool_mgr_destroy(pool_mgr_t* pool_mgr);
+size_t get_pool_manager_reference(pool_mgr_t* pool_mgr);
+size_t get_pool_manager_max_capacity(pool_mgr_t* pool_mgr);
+size_t get_pool_manager_memory_used_size(pool_mgr_t* pool_mgr);
 
 }/*end namespce rpc*/
 

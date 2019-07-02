@@ -1,6 +1,6 @@
 # JSON RPC SERVER
 
-This framework provides JSON-RPC (remote procedure call) support for C++.
+This framework provides TCP/JSON-RPC (remote procedure call) support for C++.
 Base on libevent2.1.8
 
-NOTICE:  in developing
+NOTICE: in developing

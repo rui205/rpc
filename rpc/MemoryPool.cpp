@@ -89,9 +89,23 @@ pool_t* create_pool__(pool_factory_t* factory, const char* name, size_t init_siz
     TAILQ_INSERT_HEAD(&pool_mgr->used_pool_list_, pool, entry);
     ++ pool_mgr->used_count_;
 
+	LOG(INFO) << "pool_mgr used_count_: " << pool_mgr->used_count_;
 	pthread_mutex_unlock(&pool_mgr->mutex_);
 
 	return pool;
+}
+
+bool on_chunk_alloc__(pool_factory_t* factory, size_t size) {
+	pool_mgr_t* pool_mgr = (pool_mgr_t*)factory;
+
+	pool_mgr->used_size_ += size;
+
+	return true;
+}
+
+void on_chunk_free__(pool_factory_t* factory, size_t size) {
+	pool_mgr_t* pool_mgr = (pool_mgr_t*)factory;
+	pool_mgr->used_size_ -= size;
 }
 
 void release_pool__(pool_factory_t* factory, pool_t* pool) {
@@ -151,6 +165,7 @@ void release_pool(pool_factory_t* factory, pool_t* pool) {
 }
 
 void pool_mgr_init(pool_mgr_t* pool_mgr, const pool_factory_policy_t* policy, size_t max_capacity) {
+	memset(pool_mgr, 0, sizeof(*pool_mgr));
 	pool_mgr->max_capacity_ = max_capacity;
 	pthread_mutex_init(&pool_mgr->mutex_, NULL);
 
@@ -168,9 +183,25 @@ void pool_mgr_init(pool_mgr_t* pool_mgr, const pool_factory_policy_t* policy, si
 	pool_mgr->factory_.create_pool = &create_pool__;
 	pool_mgr->factory_.release_pool = &release_pool__;
 //	pool_mgr->factory.dump_status = &dump_status__;
-//	pool_mgr->factory.on_chunk_alloc = &on_chunk_alloc__;
-//	pool_mgr->factory.on_chunk_free =  &on_chunk_free__;
+	pool_mgr->factory_.on_chunk_alloc = &on_chunk_alloc__;
+	pool_mgr->factory_.on_chunk_free =  &on_chunk_free__;
 
+}
+
+void pool_mgr_destroy(pool_mgr_t* pool_mgr) {
+
+}
+
+size_t get_pool_manager_reference(pool_mgr_t* pool_mgr) {
+	return pool_mgr->used_count_; 
+}
+
+size_t get_pool_manager_max_capacity(pool_mgr_t* pool_mgr) {
+	return pool_mgr->max_capacity_;
+}
+
+size_t get_pool_manager_memory_used_size(pool_mgr_t* pool_mgr) {
+	return pool_mgr->used_size_;
 }
 
 }/*end namespace rpc*/

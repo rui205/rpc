@@ -182,18 +182,21 @@ int main() {
 	setGoogleLogging();
 	//event_enable_debug_logging(EVENT_DBG_ALL);
 
-	test_echo();
-	return 0;
+//	test_echo();
+//	return 0;
 //	test_dynamic_thread_pool();
 	//test_list();
 	//
 	rpc::pool_mgr_t pool_mgr;
 	//pool_mgr.capacity_ = 1002;
 	rpc::pool_mgr_init(&pool_mgr, NULL, 8192);
-	rpc::pool_t* pool = rpc::create_pool(&pool_mgr.factory_, "test01", 8192, 4096);
+	rpc::pool_t* pool = rpc::create_pool(&pool_mgr.factory_, "test01", 8192 * 2, 8192);
 	if (pool == NULL) {
 		LOG(ERROR) << "1111111 is nil";
 	}
+
+	
+
 
 	rpc::pool_t* pool2 = rpc::create_pool(&pool_mgr.factory_, "test02", 8192, 4096);
 	if (pool2 == NULL) {
@@ -205,9 +208,10 @@ int main() {
 		LOG(ERROR) << "3333333 is nil";
 	}
 
+
 	LOG(INFO) << "pool_mgr count: " << pool_mgr.used_count_;
 
-	rpc::release_pool(&pool_mgr.factory_, pool3);
+	//rpc::release_pool(&pool_mgr.factory_, pool3);
 
 	//
 	

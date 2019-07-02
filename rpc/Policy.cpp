@@ -32,22 +32,19 @@ static void* __policy_block_alloc(pool_factory_t* factory, size_t size) {
     return p;
 }
 
-static void __policy_block_free(pool_factory_t* factory, void* mem, size_t size) {
-    if (factory->on_block_free) {
-        factory->on_block_free(factory, size);
-    }
-
-    REMOVE_SIG(mem, size);
-
-    free(mem);
-    mem = NULL;
 }
 
 */
 void* chunk_alloc__(pool_factory_t* factory, size_t size) {
+	if (factory->on_chunk_alloc) {
+		if (!factory->on_chunk_alloc(factory, size)) {
+			return NULL;
+		}
+	}
+
 	void* p = calloc(1, size);
 	if (p == NULL) {
-
+		return NULL;
 	}
 
 	if (p != NULL) {
@@ -58,7 +55,12 @@ void* chunk_alloc__(pool_factory_t* factory, size_t size) {
 }
 
 void chunk_free__(pool_factory_t* factory, void* memory, size_t size) {
+	if (factory->on_chunk_free) {
+		factory->on_chunk_free(factory, size);
+	}
 
+	free(memory);
+	memory = NULL;
 }
 
 pool_factory_policy_t default_policy {
