@@ -42,6 +42,8 @@ pool_t* create_pool__(pool_factory_t* factory, const char* name, size_t init_siz
 	pool_mgr_t* pool_mgr = (pool_mgr_t*)factory;
 	
 
+	pthread_mutex_lock(&pool_mgr->mutex_);
+
 	LOG(INFO) << "iii: " << i;	
 	if (i == CACHING_POOL_ARRAY_SIZE || TAILQ_EMPTY(&pool_mgr->free_pool_list_[i])) {
 		if (i < CACHING_POOL_ARRAY_SIZE) {
@@ -52,6 +54,7 @@ pool_t* create_pool__(pool_factory_t* factory, const char* name, size_t init_siz
 		assert(init_size >= sizeof(pool_t) + sizeof(pool_chunk_t));
 		unsigned char* buf = (unsigned char*)factory->policy_.chunk_alloc(factory, init_size);
 		if (buf == NULL) {
+			pthread_mutex_unlock(&pool_mgr->mutex_);
 			LOG(ERROR) << "factory policy chunk_alloc failed, buf is nil";
 			return NULL;
 		}
@@ -86,6 +89,8 @@ pool_t* create_pool__(pool_factory_t* factory, const char* name, size_t init_siz
     TAILQ_INSERT_HEAD(&pool_mgr->used_pool_list_, pool, entry);
     ++ pool_mgr->used_count_;
 
+	pthread_mutex_unlock(&pool_mgr->mutex_);
+
 	return pool;
 }
 
@@ -95,6 +100,8 @@ void release_pool__(pool_factory_t* factory, pool_t* pool) {
 	}
 
 	pool_mgr_t* pool_mgr = (pool_mgr_t*)factory;
+
+	pthread_mutex_lock(&pool_mgr->mutex_);
 
 	int exist = 0;
 	pool_t* tmp = NULL;
@@ -107,6 +114,7 @@ void release_pool__(pool_factory_t* factory, pool_t* pool) {
 	}
 
 	if (exist == 0) {
+		pthread_mutex_unlock(&pool_mgr->mutex_);
 		return;
 	}
 
@@ -130,6 +138,8 @@ void release_pool__(pool_factory_t* factory, pool_t* pool) {
 
 	TAILQ_INSERT_TAIL(&pool_mgr->free_pool_list_[i], pool, entry);
 	pool_mgr->capacity_ += pool_capacity;
+
+	pthread_mutex_unlock(&pool_mgr->mutex_);
 }
 
 pool_t* create_pool(pool_factory_t* factory, const char* pool_name, size_t init_size, size_t incr_size) {
