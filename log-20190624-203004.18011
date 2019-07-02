@@ -1,9 +1,0 @@
-Log file created at: 2019/06/24 20:30:04
-Running on machine: izm5e0bcvmlsicia7zrjysz
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-I0624 20:30:04.265434 18011 MemoryPool.cpp:87] mid: 0x7fff89e53280
-I0624 20:30:04.265852 18011 MemoryPool.cpp:40] iii: 4
-I0624 20:30:04.265889 18011 Policy.cpp:54] chunk_alloc__: 4096
-I0624 20:30:04.265913 18011 MemoryPool.cpp:87] mid: 0x7fff89e53280
-I0624 20:30:04.265924 18011 MemoryPool.cpp:40] iii: 4
-I0624 20:30:04.265938 18011 Policy.cpp:54] chunk_alloc__: 4096
