@@ -17,12 +17,23 @@ static size_t pool_sizes[CACHING_POOL_ARRAY_SIZE] = {
 	40960,49125, 57344, 65535
 };
 
+struct pool_chunk_s {
+    unsigned char* buf_;
+    unsigned char* cur_;
+    unsigned char* end_;
+    TAILQ_ENTRY(pool_chunk_s) entry;
+};
+
 size_t get_pool_capacity(pool_t* pool) {
 	if (pool != NULL) {
 		return pool->capacity_;
 	} 
 
 	return 0;
+}
+
+static pool_chunk_t* create_chunk_from_pool(pool_t* pool, size_t size) {
+	return NULL;
 }
 
 pool_t* create_pool__(pool_factory_t* factory, const char* name, size_t init_size, size_t incr_size) {
@@ -202,6 +213,99 @@ size_t get_pool_manager_max_capacity(pool_mgr_t* pool_mgr) {
 
 size_t get_pool_manager_memory_used_size(pool_mgr_t* pool_mgr) {
 	return pool_mgr->used_size_;
+}
+
+const char* get_pool_name(pool_t* pool) {
+	return pool->name_;
+}
+
+void* pool_alloc_from_chunk(pool_chunk_t* chunk, size_t size) {
+	if (chunk == NULL) {
+		return NULL;
+	}
+
+	LOG(INFO) << "first size: " << size;
+
+	if (size & (POOL_ALIGNMENT -1)) {
+		size = (size + POOL_ALIGNMENT) & ~(POOL_ALIGNMENT - 1);
+	}
+
+	LOG(INFO) << "second size: " << size;
+
+	size_t chunk_size = (size_t)(chunk->end_ - chunk->cur_);
+	LOG(INFO) << "chunk size: " << chunk_size;
+
+	if (chunk_size >= size) {
+		void* buf = chunk->cur_;
+		chunk->cur_ += size;
+		return buf;
+	}
+
+	LOG(INFO) << "the chunk size < alloc size";
+
+	return NULL;
+}
+
+void* pool_allocate_find(pool_t* pool, size_t size) {
+	if (pool == NULL) {
+		return NULL;
+	}
+
+	void* buf = NULL;
+	size_t chunk_size = 0;
+	pool_chunk_t* chunk = TAILQ_FIRST(&pool->chunk_list_);
+	chunk = TAILQ_NEXT(chunk, entry);
+	
+	while (chunk != NULL) {
+		buf = pool_alloc_from_chunk(chunk, size);
+		if (buf != NULL) {
+			return buf;
+		}	
+		chunk = TAILQ_NEXT(chunk, entry);
+	}
+
+	/*In this all chunks can not be used*/
+	/*We have create a new chunk*/
+	if (pool->incr_size_ == 0) {
+		/*If the memory pool auto increment size eq 0 then return*/
+		return NULL;
+	}
+
+	if (pool->incr_size_ < (size + sizeof(pool_chunk_t))) {
+		int count = (size + sizeof(pool_chunk_t) + pool->incr_size_ + POOL_ALIGNMENT) / pool->incr_size_;
+		chunk_size = pool->incr_size_ * count;
+	} else {
+		chunk_size = pool->incr_size_;
+	}
+
+	chunk = create_chunk_from_pool(pool, chunk_size);
+	if (chunk == NULL) {
+		LOG(ERROR) << "create chunk failed";
+		return NULL;
+	} 
+
+	buf = pool_alloc_from_chunk(chunk, size);
+	if (buf == NULL) {
+		LOG(ERROR) << "pool alloc from chunk failed";
+	}
+
+	return buf;
+}
+
+void* pool_alloc(pool_t* pool, size_t size) {
+	if (pool == NULL) {
+		return NULL;
+	}
+
+	/*Try to allocate memory using the first chunk of list*/
+	/*If failed try another chunk or allocate a new chunk*/
+	pool_chunk_t* chunk = TAILQ_FIRST(&pool->chunk_list_);
+	void* buf = pool_alloc_from_chunk(chunk, size);
+	if (buf == NULL) {
+		buf = pool_allocate_find(pool, size);
+	}
+
+	return buf;
 }
 
 }/*end namespace rpc*/

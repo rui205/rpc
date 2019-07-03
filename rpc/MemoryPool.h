@@ -23,13 +23,6 @@ typedef struct pool_chunk_s pool_chunk_t;
 typedef struct pool_factory_s pool_factory_t;
 typedef struct pool_factory_policy_s pool_factory_policy_t;
 
-struct pool_chunk_s {
-	unsigned char* buf_;
-	unsigned char* cur_;
-	unsigned char* end_;
-	TAILQ_ENTRY(pool_chunk_s) entry;
-};
-
 struct pool_s {
 	char name_[POOL_NAME_MAX];
 	size_t capacity_;
@@ -41,9 +34,12 @@ struct pool_s {
 };
 
 size_t get_pool_capacity(pool_t* pool);
+const char* get_pool_name(pool_t* pool);
 pool_t* create_pool(pool_factory_t* factory, const char* pool_name, size_t init_size, size_t incr_size);
 void release_pool(pool_factory_t* factory, pool_t* pool);
-
+void* pool_alloc_from_chunk(pool_chunk_t* chunk, size_t size);
+void* pool_allocate_find(pool_t* pool, size_t size);
+void* pool_alloc(pool_t* pool, size_t size);
 
 struct pool_factory_policy_s {
 	void* (*chunk_alloc)(pool_factory_t* factory, size_t size);

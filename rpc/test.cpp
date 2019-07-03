@@ -140,19 +140,20 @@ void test_list() {
 		TAILQ_INSERT_TAIL(&tq, n, entry);
 	}
 
-	struct node* tmp = TAILQ_FIRST(&tq);
-	LOG(INFO) << "tmp a: " << tmp->a << "  b: " << tmp->b;
-	TAILQ_REMOVE(&tq, tmp, entry);
+//	struct node* tmp = TAILQ_FIRST(&tq);
+//	LOG(INFO) << "tmp a: " << tmp->a << "  b: " << tmp->b;
+//	TAILQ_REMOVE(&tq, tmp, entry);
 
-	tmp = TAILQ_FIRST(&tq);
-	LOG(INFO) << "new head: " << tmp->a;
+//	tmp = TAILQ_FIRST(&tq);
+//	LOG(INFO) << "new head: " << tmp->a;
 	//tmp = TAILQ_NEXT(tmp, entry);
 	//LOG(INFO) << "tmp a: " << tmp->a << "  b: " << tmp->b;
-	
+/*	
 	struct node* n;
 	TAILQ_FOREACH(n, &tq, entry) {
 		LOG(INFO) << "node a: " << n->a << "  b: " << n->b;
 	}
+*/
 }
 	
 
@@ -185,7 +186,8 @@ int main() {
 //	test_echo();
 //	return 0;
 //	test_dynamic_thread_pool();
-	//test_list();
+	test_list();
+	return 0;
 	//
 	rpc::pool_mgr_t pool_mgr;
 	//pool_mgr.capacity_ = 1002;
