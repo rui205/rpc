@@ -312,32 +312,32 @@ rpc/Util.cpp.s:
 	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/Util.cpp.s
 .PHONY : rpc/Util.cpp.s
 
-rpc/test.o: rpc/test.cpp.o
+rpc/test_tcp_server.o: rpc/test_tcp_server.cpp.o
 
-.PHONY : rpc/test.o
+.PHONY : rpc/test_tcp_server.o
 
 # target to build an object file
-rpc/test.cpp.o:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/test.cpp.o
-.PHONY : rpc/test.cpp.o
+rpc/test_tcp_server.cpp.o:
+	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o
+.PHONY : rpc/test_tcp_server.cpp.o
 
-rpc/test.i: rpc/test.cpp.i
+rpc/test_tcp_server.i: rpc/test_tcp_server.cpp.i
 
-.PHONY : rpc/test.i
+.PHONY : rpc/test_tcp_server.i
 
 # target to preprocess a source file
-rpc/test.cpp.i:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/test.cpp.i
-.PHONY : rpc/test.cpp.i
+rpc/test_tcp_server.cpp.i:
+	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.i
+.PHONY : rpc/test_tcp_server.cpp.i
 
-rpc/test.s: rpc/test.cpp.s
+rpc/test_tcp_server.s: rpc/test_tcp_server.cpp.s
 
-.PHONY : rpc/test.s
+.PHONY : rpc/test_tcp_server.s
 
 # target to generate assembly for a file
-rpc/test.cpp.s:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/test.cpp.s
-.PHONY : rpc/test.cpp.s
+rpc/test_tcp_server.cpp.s:
+	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.s
+.PHONY : rpc/test_tcp_server.cpp.s
 
 # Help Target
 help:
@@ -369,9 +369,9 @@ help:
 	@echo "... rpc/Util.o"
 	@echo "... rpc/Util.i"
 	@echo "... rpc/Util.s"
-	@echo "... rpc/test.o"
-	@echo "... rpc/test.i"
-	@echo "... rpc/test.s"
+	@echo "... rpc/test_tcp_server.o"
+	@echo "... rpc/test_tcp_server.i"
+	@echo "... rpc/test_tcp_server.s"
 .PHONY : help
 
 

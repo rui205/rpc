@@ -225,28 +225,28 @@ CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o.provides: CMakeFiles/rpcServer.dir/
 CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o.provides.build: CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o
 
 
-CMakeFiles/rpcServer.dir/rpc/test.cpp.o: CMakeFiles/rpcServer.dir/flags.make
-CMakeFiles/rpcServer.dir/rpc/test.cpp.o: rpc/test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/rpcServer.dir/rpc/test.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpcServer.dir/rpc/test.cpp.o -c /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/test.cpp
+CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o: CMakeFiles/rpcServer.dir/flags.make
+CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o: rpc/test_tcp_server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o -c /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/test_tcp_server.cpp
 
-CMakeFiles/rpcServer.dir/rpc/test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpcServer.dir/rpc/test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/test.cpp > CMakeFiles/rpcServer.dir/rpc/test.cpp.i
+CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/test_tcp_server.cpp > CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.i
 
-CMakeFiles/rpcServer.dir/rpc/test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpcServer.dir/rpc/test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/test.cpp -o CMakeFiles/rpcServer.dir/rpc/test.cpp.s
+CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/test_tcp_server.cpp -o CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.s
 
-CMakeFiles/rpcServer.dir/rpc/test.cpp.o.requires:
+CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o.requires:
 
-.PHONY : CMakeFiles/rpcServer.dir/rpc/test.cpp.o.requires
+.PHONY : CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o.requires
 
-CMakeFiles/rpcServer.dir/rpc/test.cpp.o.provides: CMakeFiles/rpcServer.dir/rpc/test.cpp.o.requires
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/test.cpp.o.provides.build
-.PHONY : CMakeFiles/rpcServer.dir/rpc/test.cpp.o.provides
+CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o.provides: CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o.requires
+	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o.provides.build
+.PHONY : CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o.provides
 
-CMakeFiles/rpcServer.dir/rpc/test.cpp.o.provides.build: CMakeFiles/rpcServer.dir/rpc/test.cpp.o
+CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o.provides.build: CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o
 
 
 # Object files for target rpcServer
@@ -258,7 +258,7 @@ rpcServer_OBJECTS = \
 "CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.o" \
 "CMakeFiles/rpcServer.dir/rpc/Channel.cpp.o" \
 "CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o" \
-"CMakeFiles/rpcServer.dir/rpc/test.cpp.o"
+"CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o"
 
 # External object files for target rpcServer
 rpcServer_EXTERNAL_OBJECTS =
@@ -270,7 +270,7 @@ rpcServer: CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.o
 rpcServer: CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.o
 rpcServer: CMakeFiles/rpcServer.dir/rpc/Channel.cpp.o
 rpcServer: CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o
-rpcServer: CMakeFiles/rpcServer.dir/rpc/test.cpp.o
+rpcServer: CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o
 rpcServer: CMakeFiles/rpcServer.dir/build.make
 rpcServer: lib/gflags/libgflags.a
 rpcServer: lib/glog/libglog.a
@@ -293,7 +293,7 @@ CMakeFiles/rpcServer.dir/requires: CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.o
 CMakeFiles/rpcServer.dir/requires: CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.o.requires
 CMakeFiles/rpcServer.dir/requires: CMakeFiles/rpcServer.dir/rpc/Channel.cpp.o.requires
 CMakeFiles/rpcServer.dir/requires: CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o.requires
-CMakeFiles/rpcServer.dir/requires: CMakeFiles/rpcServer.dir/rpc/test.cpp.o.requires
+CMakeFiles/rpcServer.dir/requires: CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o.requires
 
 .PHONY : CMakeFiles/rpcServer.dir/requires
 

@@ -6,7 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.o"
   "CMakeFiles/rpcServer.dir/rpc/Channel.cpp.o"
   "CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o"
-  "CMakeFiles/rpcServer.dir/rpc/test.cpp.o"
+  "CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o"
   "rpcServer.pdb"
   "rpcServer"
 )

@@ -39,7 +39,8 @@ set(BUTIL_SOURCES
 	${PROJECT_SOURCE_DIR}/rpc/TaskQueue.cpp
 	${PROJECT_SOURCE_DIR}/rpc/Channel.cpp
     ${PROJECT_SOURCE_DIR}/rpc/TcpServer.cpp
-    ${PROJECT_SOURCE_DIR}/rpc/test.cpp
+	${PROJECT_SOURCE_DIR}/rpc/test_tcp_server #tcp server example
+#    ${PROJECT_SOURCE_DIR}/rpc/test.cpp
 )
 
 add_executable(${PROJECT_NAME} ${BUTIL_SOURCES})
