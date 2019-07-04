@@ -7,8 +7,14 @@
 namespace rpc {
 
 #define START_SIZE 5
+//内存对齐操作
+//example: 127要以8个字节进行对齐,假设字长为8
+//127 + (-127) & (8 - 1)
+//127补码: 01111111
+//-127补码: 10000001
+//-127 & (8 - 1) = 1
+//result: 128
 #define ALIGN_PTR(PTR, ALIGNMENT) (PTR + (-(ssize_t)(PTR) & (ALIGNMENT-1)))
-
 
 static size_t pool_sizes[CACHING_POOL_ARRAY_SIZE] = {	
 	256, 512, 1024, 2048, 
@@ -32,8 +38,25 @@ size_t get_pool_capacity(pool_t* pool) {
 	return 0;
 }
 
+/*Create buffer chunk for factory policy*/
+/*In this function we used default policy(calloc/free)*/
 static pool_chunk_t* create_chunk_from_pool(pool_t* pool, size_t size) {
-	return NULL;
+	assert(size >= sizeof(pool_chunk_t));
+	
+	pool_chunk_t* chunk = (pool_chunk_t*)(*pool->factory->policy.chunk_alloc)(pool->factory, size);
+	if (chunk == NULL) {
+		return NULL;
+	}
+
+	pool->capacity_ += size;
+
+	chunk->buf_ = ((unsigned char*)chunk) + sizeof(pool_chunk_t);
+	chunk->cur_ = ALIG_PTR(chunk->buf, POOL_ALIGNMENT);
+	chunk->end_ = ((unsigned char*)chunk) + size;
+
+	TAILQ_INSERT_TAIL(&pool->chunk_list_, chunk, entry);
+
+	return chunk;
 }
 
 pool_t* create_pool__(pool_factory_t* factory, const char* name, size_t init_size, size_t incr_size) {
@@ -203,6 +226,7 @@ void pool_mgr_destroy(pool_mgr_t* pool_mgr) {
 
 }
 
+/*get pool manager reference count*/
 size_t get_pool_manager_reference(pool_mgr_t* pool_mgr) {
 	return pool_mgr->used_count_; 
 }
@@ -226,6 +250,9 @@ void* pool_alloc_from_chunk(pool_chunk_t* chunk, size_t size) {
 
 	LOG(INFO) << "first size: " << size;
 
+	/*the value(size) = n * ALIGNMENT*/
+	/*一定要加上一个POOL_ALIGNMENT 保证实际申请的内存大于size并且是对齐的*/
+	/*example:以127为例子,如果不加POOL_ALIGNMENT则最终为120,小于size从而引起错误*/
 	if (size & (POOL_ALIGNMENT -1)) {
 		size = (size + POOL_ALIGNMENT) & ~(POOL_ALIGNMENT - 1);
 	}
@@ -255,7 +282,8 @@ void* pool_allocate_find(pool_t* pool, size_t size) {
 	size_t chunk_size = 0;
 	pool_chunk_t* chunk = TAILQ_FIRST(&pool->chunk_list_);
 	chunk = TAILQ_NEXT(chunk, entry);
-	
+
+	/*traverse*/	
 	while (chunk != NULL) {
 		buf = pool_alloc_from_chunk(chunk, size);
 		if (buf != NULL) {
@@ -264,13 +292,14 @@ void* pool_allocate_find(pool_t* pool, size_t size) {
 		chunk = TAILQ_NEXT(chunk, entry);
 	}
 
-	/*In this all chunks can not be used*/
+	/*In this, all chunks can not be used*/
 	/*We have create a new chunk*/
 	if (pool->incr_size_ == 0) {
 		/*If the memory pool auto increment size eq 0 then return*/
 		return NULL;
 	}
 
+	/*how many size for new chunk*/
 	if (pool->incr_size_ < (size + sizeof(pool_chunk_t))) {
 		int count = (size + sizeof(pool_chunk_t) + pool->incr_size_ + POOL_ALIGNMENT) / pool->incr_size_;
 		chunk_size = pool->incr_size_ * count;
@@ -278,12 +307,14 @@ void* pool_allocate_find(pool_t* pool, size_t size) {
 		chunk_size = pool->incr_size_;
 	}
 
+	/*Create chunk*/
 	chunk = create_chunk_from_pool(pool, chunk_size);
 	if (chunk == NULL) {
 		LOG(ERROR) << "create chunk failed";
 		return NULL;
 	} 
 
+	/*allocate memory from new chunk*/
 	buf = pool_alloc_from_chunk(chunk, size);
 	if (buf == NULL) {
 		LOG(ERROR) << "pool alloc from chunk failed";

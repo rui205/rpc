@@ -33,6 +33,7 @@ struct pool_s {
 	TAILQ_HEAD(, pool_chunk_s) chunk_list_;
 };
 
+/*pool public interface*/
 size_t get_pool_capacity(pool_t* pool);
 const char* get_pool_name(pool_t* pool);
 pool_t* create_pool(pool_factory_t* factory, const char* pool_name, size_t init_size, size_t incr_size);
@@ -41,6 +42,7 @@ void* pool_alloc_from_chunk(pool_chunk_t* chunk, size_t size);
 void* pool_allocate_find(pool_t* pool, size_t size);
 void* pool_alloc(pool_t* pool, size_t size);
 
+/*policy interface responsible allocate chunk(new/delete/alloc/free)*/
 struct pool_factory_policy_s {
 	void* (*chunk_alloc)(pool_factory_t* factory, size_t size);
 	void (*chunk_free)(pool_factory_t* factory, void* memory, size_t size);
