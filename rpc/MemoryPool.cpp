@@ -43,7 +43,7 @@ size_t get_pool_capacity(pool_t* pool) {
 static pool_chunk_t* create_chunk_from_pool(pool_t* pool, size_t size) {
 	assert(size >= sizeof(pool_chunk_t));
 	
-	pool_chunk_t* chunk = (pool_chunk_t*)(*pool->factory->policy.chunk_alloc)(pool->factory, size);
+	pool_chunk_t* chunk = (pool_chunk_t*)(*pool->factory_->policy_.chunk_alloc)(pool->factory_, size);
 	if (chunk == NULL) {
 		return NULL;
 	}
@@ -51,7 +51,7 @@ static pool_chunk_t* create_chunk_from_pool(pool_t* pool, size_t size) {
 	pool->capacity_ += size;
 
 	chunk->buf_ = ((unsigned char*)chunk) + sizeof(pool_chunk_t);
-	chunk->cur_ = ALIG_PTR(chunk->buf, POOL_ALIGNMENT);
+	chunk->cur_ = ALIGN_PTR(chunk->buf_, POOL_ALIGNMENT);
 	chunk->end_ = ((unsigned char*)chunk) + size;
 
 	TAILQ_INSERT_TAIL(&pool->chunk_list_, chunk, entry);

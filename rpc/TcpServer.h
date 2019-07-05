@@ -10,10 +10,10 @@ namespace rpc {
 
 typedef std::function<void(Channel*, void*)> callback_t;
 
-class TcpServerImpl: public TcpServerInterface {
+class TcpServer: public TcpServerInterface {
 public:
-	explicit TcpServerImpl(std::string addr, int thread_num);
-	~TcpServerImpl();
+	explicit TcpServer(std::string addr, int thread_num);
+	~TcpServer();
 
 public:
 	void Start() override;
@@ -58,6 +58,6 @@ private:
 	thread_t* thread_pool_;
 	pthread_cond_t cond_var_;
 	pthread_mutex_t mutex_;
-};/*end TcpServerImpl*/
+};/*end TcpServer*/
 
 } /*end namespace rpc*/

@@ -8,7 +8,7 @@
 
 namespace rpc {
 
-TcpServerImpl::TcpServerImpl(std::string addr, int thread_num) {
+TcpServer::TcpServer(std::string addr, int thread_num) {
 	if (addr.length() <= 0 || thread_num <= 1) {
 		exit(-1);
 	}
@@ -48,7 +48,7 @@ TcpServerImpl::TcpServerImpl(std::string addr, int thread_num) {
 	init_thread_count_ = 0;
 }
 
-TcpServerImpl::~TcpServerImpl() {
+TcpServer::~TcpServer() {
     if (listener_ != NULL) {
         event_safe_free(listener_, evconnlistener_free);
     }
@@ -71,7 +71,7 @@ TcpServerImpl::~TcpServerImpl() {
     master_ = thread_pool_ = NULL;
 }
 
-void TcpServerImpl::Start() {
+void TcpServer::Start() {
 	/*init the thead info*/
 	ThreadInit();
 	
@@ -98,23 +98,23 @@ void TcpServerImpl::Start() {
     event_base_dispatch(master_->base_);
 }
 
-void TcpServerImpl::Stop() {
+void TcpServer::Stop() {
 
 }
 
-void TcpServerImpl::Read(Channel* chan, void* arg) {
+void TcpServer::Read(Channel* chan, void* arg) {
 	// NOTHING TODO
 }
 
-void TcpServerImpl::Write(Channel* chan, void* arg) {
+void TcpServer::Write(Channel* chan, void* arg) {
 	// NOTHING TODO
 }
 
-void TcpServerImpl::Error(Channel* chan, void* arg) {
+void TcpServer::Error(Channel* chan, void* arg) {
 	// NOTHING TODO
 }
 
-void TcpServerImpl::SettingCallback(callback_t readcb, callback_t writecb, callback_t errorcb) {
+void TcpServer::SettingCallback(callback_t readcb, callback_t writecb, callback_t errorcb) {
 	if (readcb == NULL && writecb == NULL && errorcb == NULL) {
 		return;
 	}
@@ -124,11 +124,11 @@ void TcpServerImpl::SettingCallback(callback_t readcb, callback_t writecb, callb
 	error_callback_ = errorcb;
 }
 
-void TcpServerImpl::AutoIncrement() {
+void TcpServer::AutoIncrement() {
 	++ init_thread_count_;
 }
 
-void TcpServerImpl::Notify(int fd, short events, void* arg) {
+void TcpServer::Notify(int fd, short events, void* arg) {
     thread_t* thr = static_cast<thread_t*>(arg);
     char buf[1];
 
@@ -172,7 +172,7 @@ void TcpServerImpl::Notify(int fd, short events, void* arg) {
     }
 }
 
-void TcpServerImpl::Monitor(evconnlistener* listener, int fd, struct sockaddr* remote_addr, int  events, void* arg) {
+void TcpServer::Monitor(evconnlistener* listener, int fd, struct sockaddr* remote_addr, int  events, void* arg) {
    if (fd < 0 || arg == NULL) {
 		LOG(ERROR) << "Monitor recv fd or arg is nil";
         return;
@@ -181,8 +181,8 @@ void TcpServerImpl::Monitor(evconnlistener* listener, int fd, struct sockaddr* r
     Dispatch(fd, EV_READ | EV_PERSIST, arg);
 }
 
-void TcpServerImpl::Dispatch(int fd, int events, void* arg) {
-    TcpServerImpl* server = static_cast<TcpServerImpl*>(arg);
+void TcpServer::Dispatch(int fd, int events, void* arg) {
+    TcpServer* server = static_cast<TcpServer*>(arg);
 
     /*get thread from thread pools*/
     thread_t* thr = server->GetThreadFromPools();
@@ -221,7 +221,7 @@ void TcpServerImpl::Dispatch(int fd, int events, void* arg) {
     LOG(INFO) << "dispatch succ OK";
 }
 
-void* TcpServerImpl::Routine(void* arg) {
+void* TcpServer::Routine(void* arg) {
     thread_t* thr = static_cast<thread_t*>(arg);
     if (thr == NULL) {
         pthread_exit(NULL);
@@ -239,15 +239,15 @@ void* TcpServerImpl::Routine(void* arg) {
     pthread_exit(NULL);
 }
 
-pthread_cond_t* TcpServerImpl::GetThreadCondVar() {
+pthread_cond_t* TcpServer::GetThreadCondVar() {
 	return &cond_var_;
 }
 
-pthread_mutex_t* TcpServerImpl::GetThreadMutex() {
+pthread_mutex_t* TcpServer::GetThreadMutex() {
 	return &mutex_;
 }
 
-void TcpServerImpl::ThreadInit() {
+void TcpServer::ThreadInit() {
 	pthread_cond_init(&cond_var_, NULL);
 	pthread_mutex_init(&mutex_, NULL);
 
@@ -277,7 +277,7 @@ void TcpServerImpl::ThreadInit() {
 	pthread_mutex_unlock(&mutex_);
 }
 
-void TcpServerImpl::ThreadStart(void* (*func)(void*), void* arg) {
+void TcpServer::ThreadStart(void* (*func)(void*), void* arg) {
     thread_t* thr = static_cast<thread_t*>(arg);
     pthread_attr_t attr;
     pthread_attr_init(&attr);
@@ -290,7 +290,7 @@ void TcpServerImpl::ThreadStart(void* (*func)(void*), void* arg) {
     }
 }
 
-void TcpServerImpl::SetupThread(thread_t* thr) {
+void TcpServer::SetupThread(thread_t* thr) {
     if (thr == NULL) {
         LOG(ERROR) << "SetupThread met error: thread is nil";
         return;
@@ -332,19 +332,19 @@ void TcpServerImpl::SetupThread(thread_t* thr) {
     /*dao*/
 }
 
-void TcpServerImpl::WaitingForThreadRegistration() {
+void TcpServer::WaitingForThreadRegistration() {
     while (init_thread_count_ < threads_) {
         pthread_cond_wait(&cond_var_, &mutex_);
     }
 }
 
-thread_t* TcpServerImpl::GetThreadFromPools() {
+thread_t* TcpServer::GetThreadFromPools() {
     ++ last_index_;
     last_index_ = last_index_ % threads_;
     return &thread_pool_[last_index_];
 }
 
-Channel* TcpServerImpl::CreateChannel(int fd, short events, struct event_base* base) {
+Channel* TcpServer::CreateChannel(int fd, short events, struct event_base* base) {
     if (fd < 0 || base == NULL) {
         return NULL;
     }
@@ -377,7 +377,7 @@ Channel* TcpServerImpl::CreateChannel(int fd, short events, struct event_base* b
 
 }
 
-void TcpServerImpl::BufferReadCallback(struct bufferevent* bev, void* arg) {
+void TcpServer::BufferReadCallback(struct bufferevent* bev, void* arg) {
     Channel* chan = static_cast<Channel*>(arg);
     if (chan == NULL) {
         return;
@@ -396,7 +396,7 @@ void TcpServerImpl::BufferReadCallback(struct bufferevent* bev, void* arg) {
     */
 }
 
-void TcpServerImpl::BufferWriteCallback(struct bufferevent* bev, void* arg) {
+void TcpServer::BufferWriteCallback(struct bufferevent* bev, void* arg) {
 	Channel* chan = static_cast<Channel*>(arg);
 	if (chan == NULL) {
 		return;
@@ -412,7 +412,7 @@ void TcpServerImpl::BufferWriteCallback(struct bufferevent* bev, void* arg) {
 */
 }
 
-void TcpServerImpl::BufferErrorCallback(struct bufferevent* bev, short events, void* arg) {
+void TcpServer::BufferErrorCallback(struct bufferevent* bev, short events, void* arg) {
 	Channel* chan = static_cast<Channel*>(arg);
 	if (chan == NULL) {
 		return;

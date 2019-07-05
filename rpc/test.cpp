@@ -58,9 +58,9 @@ void setGoogleLogging() {
     //     }
     // }
 
-class test_echo_server final: public rpc::TcpServerImpl {
+class test_echo_server final: public rpc::TcpServer {
 public:
-	test_echo_server(): rpc::TcpServerImpl(std::string("0.0.0.0:9900"), 10) {}
+	test_echo_server(): rpc::TcpServer(std::string("0.0.0.0:9900"), 10) {}
 	~test_echo_server() {}
 	void Read(rpc::Channel* chan, void* arg) {
 		if (chan == NULL) {

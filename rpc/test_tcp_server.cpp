@@ -9,13 +9,13 @@
 /*example for tcp server read and write*/
 /*the channel timeout 10s(closed)*/
 
-class TcpServer final: public rpc::TcpServerImpl {
+class TcpServerImpl final: public rpc::TcpServer {
 public:
-	TcpServer(): rpc::TcpServerImpl(std::string("0.0.0.0:9900"), 4) {
+	TcpServerImpl(): rpc::TcpServer(std::string("0.0.0.0:9900"), 4) {
 
 	}
 	
-	~TcpServer() {
+	~TcpServerImpl() {
 
 	}
 
@@ -103,7 +103,7 @@ void SetupGoogleLog() {
 
 int main() {
 	SetupGoogleLog();
-	TcpServer* server = new(std::nothrow) TcpServer;
+	TcpServerImpl* server = new(std::nothrow) TcpServerImpl;
 	if (server) {
 		server->Start();
 	}
