@@ -11,7 +11,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TaskQueue.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.o"
   "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/TcpServer.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o"
   "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/Util.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles/rpcServer.dir/rpc/Util.cpp.o"
-  "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/test_tcp_server.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o"
+  "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/rpc/test_memory_pool.cpp" "/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc/CMakeFiles/rpcServer.dir/rpc/test_memory_pool.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

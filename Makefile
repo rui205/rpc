@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named rpcServer
+# Target rules for targets named rpc_server
 
 # Build rule for target.
-rpcServer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rpcServer
-.PHONY : rpcServer
+rpc_server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rpc_server
+.PHONY : rpc_server
 
 # fast build rule for target.
-rpcServer/fast:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/build
-.PHONY : rpcServer/fast
+rpc_server/fast:
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/build
+.PHONY : rpc_server/fast
 
 rpc/Channel.o: rpc/Channel.cpp.o
 
@@ -129,7 +129,7 @@ rpc/Channel.o: rpc/Channel.cpp.o
 
 # target to build an object file
 rpc/Channel.cpp.o:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/Channel.cpp.o
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/Channel.cpp.o
 .PHONY : rpc/Channel.cpp.o
 
 rpc/Channel.i: rpc/Channel.cpp.i
@@ -138,7 +138,7 @@ rpc/Channel.i: rpc/Channel.cpp.i
 
 # target to preprocess a source file
 rpc/Channel.cpp.i:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/Channel.cpp.i
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/Channel.cpp.i
 .PHONY : rpc/Channel.cpp.i
 
 rpc/Channel.s: rpc/Channel.cpp.s
@@ -147,7 +147,7 @@ rpc/Channel.s: rpc/Channel.cpp.s
 
 # target to generate assembly for a file
 rpc/Channel.cpp.s:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/Channel.cpp.s
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/Channel.cpp.s
 .PHONY : rpc/Channel.cpp.s
 
 rpc/DynamicThreadPool.o: rpc/DynamicThreadPool.cpp.o
@@ -156,7 +156,7 @@ rpc/DynamicThreadPool.o: rpc/DynamicThreadPool.cpp.o
 
 # target to build an object file
 rpc/DynamicThreadPool.cpp.o:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.o
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/DynamicThreadPool.cpp.o
 .PHONY : rpc/DynamicThreadPool.cpp.o
 
 rpc/DynamicThreadPool.i: rpc/DynamicThreadPool.cpp.i
@@ -165,7 +165,7 @@ rpc/DynamicThreadPool.i: rpc/DynamicThreadPool.cpp.i
 
 # target to preprocess a source file
 rpc/DynamicThreadPool.cpp.i:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.i
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/DynamicThreadPool.cpp.i
 .PHONY : rpc/DynamicThreadPool.cpp.i
 
 rpc/DynamicThreadPool.s: rpc/DynamicThreadPool.cpp.s
@@ -174,7 +174,7 @@ rpc/DynamicThreadPool.s: rpc/DynamicThreadPool.cpp.s
 
 # target to generate assembly for a file
 rpc/DynamicThreadPool.cpp.s:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/DynamicThreadPool.cpp.s
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/DynamicThreadPool.cpp.s
 .PHONY : rpc/DynamicThreadPool.cpp.s
 
 rpc/MemoryPool.o: rpc/MemoryPool.cpp.o
@@ -183,7 +183,7 @@ rpc/MemoryPool.o: rpc/MemoryPool.cpp.o
 
 # target to build an object file
 rpc/MemoryPool.cpp.o:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.o
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/MemoryPool.cpp.o
 .PHONY : rpc/MemoryPool.cpp.o
 
 rpc/MemoryPool.i: rpc/MemoryPool.cpp.i
@@ -192,7 +192,7 @@ rpc/MemoryPool.i: rpc/MemoryPool.cpp.i
 
 # target to preprocess a source file
 rpc/MemoryPool.cpp.i:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.i
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/MemoryPool.cpp.i
 .PHONY : rpc/MemoryPool.cpp.i
 
 rpc/MemoryPool.s: rpc/MemoryPool.cpp.s
@@ -201,7 +201,7 @@ rpc/MemoryPool.s: rpc/MemoryPool.cpp.s
 
 # target to generate assembly for a file
 rpc/MemoryPool.cpp.s:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/MemoryPool.cpp.s
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/MemoryPool.cpp.s
 .PHONY : rpc/MemoryPool.cpp.s
 
 rpc/Policy.o: rpc/Policy.cpp.o
@@ -210,7 +210,7 @@ rpc/Policy.o: rpc/Policy.cpp.o
 
 # target to build an object file
 rpc/Policy.cpp.o:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/Policy.cpp.o
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/Policy.cpp.o
 .PHONY : rpc/Policy.cpp.o
 
 rpc/Policy.i: rpc/Policy.cpp.i
@@ -219,7 +219,7 @@ rpc/Policy.i: rpc/Policy.cpp.i
 
 # target to preprocess a source file
 rpc/Policy.cpp.i:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/Policy.cpp.i
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/Policy.cpp.i
 .PHONY : rpc/Policy.cpp.i
 
 rpc/Policy.s: rpc/Policy.cpp.s
@@ -228,7 +228,7 @@ rpc/Policy.s: rpc/Policy.cpp.s
 
 # target to generate assembly for a file
 rpc/Policy.cpp.s:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/Policy.cpp.s
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/Policy.cpp.s
 .PHONY : rpc/Policy.cpp.s
 
 rpc/TaskQueue.o: rpc/TaskQueue.cpp.o
@@ -237,7 +237,7 @@ rpc/TaskQueue.o: rpc/TaskQueue.cpp.o
 
 # target to build an object file
 rpc/TaskQueue.cpp.o:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.o
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/TaskQueue.cpp.o
 .PHONY : rpc/TaskQueue.cpp.o
 
 rpc/TaskQueue.i: rpc/TaskQueue.cpp.i
@@ -246,7 +246,7 @@ rpc/TaskQueue.i: rpc/TaskQueue.cpp.i
 
 # target to preprocess a source file
 rpc/TaskQueue.cpp.i:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.i
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/TaskQueue.cpp.i
 .PHONY : rpc/TaskQueue.cpp.i
 
 rpc/TaskQueue.s: rpc/TaskQueue.cpp.s
@@ -255,7 +255,7 @@ rpc/TaskQueue.s: rpc/TaskQueue.cpp.s
 
 # target to generate assembly for a file
 rpc/TaskQueue.cpp.s:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/TaskQueue.cpp.s
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/TaskQueue.cpp.s
 .PHONY : rpc/TaskQueue.cpp.s
 
 rpc/TcpServer.o: rpc/TcpServer.cpp.o
@@ -264,7 +264,7 @@ rpc/TcpServer.o: rpc/TcpServer.cpp.o
 
 # target to build an object file
 rpc/TcpServer.cpp.o:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/TcpServer.cpp.o
 .PHONY : rpc/TcpServer.cpp.o
 
 rpc/TcpServer.i: rpc/TcpServer.cpp.i
@@ -273,7 +273,7 @@ rpc/TcpServer.i: rpc/TcpServer.cpp.i
 
 # target to preprocess a source file
 rpc/TcpServer.cpp.i:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.i
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/TcpServer.cpp.i
 .PHONY : rpc/TcpServer.cpp.i
 
 rpc/TcpServer.s: rpc/TcpServer.cpp.s
@@ -282,7 +282,7 @@ rpc/TcpServer.s: rpc/TcpServer.cpp.s
 
 # target to generate assembly for a file
 rpc/TcpServer.cpp.s:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.s
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/TcpServer.cpp.s
 .PHONY : rpc/TcpServer.cpp.s
 
 rpc/Util.o: rpc/Util.cpp.o
@@ -291,7 +291,7 @@ rpc/Util.o: rpc/Util.cpp.o
 
 # target to build an object file
 rpc/Util.cpp.o:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/Util.cpp.o
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/Util.cpp.o
 .PHONY : rpc/Util.cpp.o
 
 rpc/Util.i: rpc/Util.cpp.i
@@ -300,7 +300,7 @@ rpc/Util.i: rpc/Util.cpp.i
 
 # target to preprocess a source file
 rpc/Util.cpp.i:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/Util.cpp.i
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/Util.cpp.i
 .PHONY : rpc/Util.cpp.i
 
 rpc/Util.s: rpc/Util.cpp.s
@@ -309,35 +309,35 @@ rpc/Util.s: rpc/Util.cpp.s
 
 # target to generate assembly for a file
 rpc/Util.cpp.s:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/Util.cpp.s
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/Util.cpp.s
 .PHONY : rpc/Util.cpp.s
 
-rpc/test_tcp_server.o: rpc/test_tcp_server.cpp.o
+rpc/test_memory_pool.o: rpc/test_memory_pool.cpp.o
 
-.PHONY : rpc/test_tcp_server.o
+.PHONY : rpc/test_memory_pool.o
 
 # target to build an object file
-rpc/test_tcp_server.cpp.o:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o
-.PHONY : rpc/test_tcp_server.cpp.o
+rpc/test_memory_pool.cpp.o:
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/test_memory_pool.cpp.o
+.PHONY : rpc/test_memory_pool.cpp.o
 
-rpc/test_tcp_server.i: rpc/test_tcp_server.cpp.i
+rpc/test_memory_pool.i: rpc/test_memory_pool.cpp.i
 
-.PHONY : rpc/test_tcp_server.i
+.PHONY : rpc/test_memory_pool.i
 
 # target to preprocess a source file
-rpc/test_tcp_server.cpp.i:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.i
-.PHONY : rpc/test_tcp_server.cpp.i
+rpc/test_memory_pool.cpp.i:
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/test_memory_pool.cpp.i
+.PHONY : rpc/test_memory_pool.cpp.i
 
-rpc/test_tcp_server.s: rpc/test_tcp_server.cpp.s
+rpc/test_memory_pool.s: rpc/test_memory_pool.cpp.s
 
-.PHONY : rpc/test_tcp_server.s
+.PHONY : rpc/test_memory_pool.s
 
 # target to generate assembly for a file
-rpc/test_tcp_server.cpp.s:
-	$(MAKE) -f CMakeFiles/rpcServer.dir/build.make CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.s
-.PHONY : rpc/test_tcp_server.cpp.s
+rpc/test_memory_pool.cpp.s:
+	$(MAKE) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc/test_memory_pool.cpp.s
+.PHONY : rpc/test_memory_pool.cpp.s
 
 # Help Target
 help:
@@ -347,7 +347,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... rpcServer"
+	@echo "... rpc_server"
 	@echo "... rpc/Channel.o"
 	@echo "... rpc/Channel.i"
 	@echo "... rpc/Channel.s"
@@ -369,9 +369,9 @@ help:
 	@echo "... rpc/Util.o"
 	@echo "... rpc/Util.i"
 	@echo "... rpc/Util.s"
-	@echo "... rpc/test_tcp_server.o"
-	@echo "... rpc/test_tcp_server.i"
-	@echo "... rpc/test_tcp_server.s"
+	@echo "... rpc/test_memory_pool.o"
+	@echo "... rpc/test_memory_pool.i"
+	@echo "... rpc/test_memory_pool.s"
 .PHONY : help
 
 

@@ -47,10 +47,6 @@ void* chunk_alloc__(pool_factory_t* factory, size_t size) {
 		return NULL;
 	}
 
-	if (p != NULL) {
-		LOG(INFO) << "chunk_alloc__: " << size;
-	}
-
 	return p;
 }
 

@@ -77,12 +77,12 @@ struct pool_mgr_s {
 };
 
 /*pool manager public interface*/
-void pool_mgr_init(pool_mgr_t* pool_mgr, const pool_factory_policy_t* policy, size_t max_capacity);
-void pool_mgr_destroy(pool_mgr_t* pool_mgr);
+void pool_manager_init(pool_mgr_t* pool_mgr, const pool_factory_policy_t* policy, size_t max_capacity);
+void pool_manager_destroy(pool_mgr_t* pool_mgr);
 size_t get_pool_manager_reference(pool_mgr_t* pool_mgr);
 size_t get_pool_manager_max_capacity(pool_mgr_t* pool_mgr);
 size_t get_pool_manager_memory_used_size(pool_mgr_t* pool_mgr);
-
+pool_factory_t* get_pool_manager_factory(pool_mgr_t* pool_mgr);
 }/*end namespce rpc*/
 
 #endif

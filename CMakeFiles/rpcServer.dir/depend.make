@@ -57,18 +57,12 @@ CMakeFiles/rpcServer.dir/rpc/TcpServer.cpp.o: include/libevent/event2/listener.h
 CMakeFiles/rpcServer.dir/rpc/Util.cpp.o: rpc/Util.cpp
 CMakeFiles/rpcServer.dir/rpc/Util.cpp.o: rpc/Util.h
 
-CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o: rpc/Channel.h
-CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o: rpc/TaskQueue.h
-CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o: rpc/TcpServer.h
-CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o: rpc/TcpServerInterface.h
-CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o: rpc/Util.h
-CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o: rpc/test_tcp_server.cpp
-CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o: include/gflags/gflags.h
-CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o: include/gflags/gflags_declare.h
-CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o: include/gflags/gflags_gflags.h
-CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o: include/glog/log_severity.h
-CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o: include/glog/logging.h
-CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o: include/glog/vlog_is_on.h
-CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o: include/libevent/event.h
-CMakeFiles/rpcServer.dir/rpc/test_tcp_server.cpp.o: include/libevent/event2/listener.h
+CMakeFiles/rpcServer.dir/rpc/test_memory_pool.cpp.o: rpc/MemoryPool.h
+CMakeFiles/rpcServer.dir/rpc/test_memory_pool.cpp.o: rpc/test_memory_pool.cpp
+CMakeFiles/rpcServer.dir/rpc/test_memory_pool.cpp.o: include/gflags/gflags.h
+CMakeFiles/rpcServer.dir/rpc/test_memory_pool.cpp.o: include/gflags/gflags_declare.h
+CMakeFiles/rpcServer.dir/rpc/test_memory_pool.cpp.o: include/gflags/gflags_gflags.h
+CMakeFiles/rpcServer.dir/rpc/test_memory_pool.cpp.o: include/glog/log_severity.h
+CMakeFiles/rpcServer.dir/rpc/test_memory_pool.cpp.o: include/glog/logging.h
+CMakeFiles/rpcServer.dir/rpc/test_memory_pool.cpp.o: include/glog/vlog_is_on.h
 

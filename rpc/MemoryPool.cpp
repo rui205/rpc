@@ -93,6 +93,8 @@ pool_t* create_pool__(pool_factory_t* factory, const char* name, size_t init_siz
 			return NULL;
 		}
 
+		LOG(INFO) << "pool struct size: " << sizeof(pool_t) << "   chunk struct size: " << sizeof(pool_chunk_t);
+
 		pool = (pool_t*)buf;
 		TAILQ_INIT(&pool->chunk_list_);
 		pool->factory_ = factory;
@@ -104,7 +106,6 @@ pool_t* create_pool__(pool_factory_t* factory, const char* name, size_t init_siz
 		pool->capacity_ = init_size;
 		pool->incr_size_ = incr_size;
 		strncpy(pool->name_, name, sizeof(pool->name_));
-		//pool_mgr->capacity_ += init_size;
 	} else {
 		LOG(INFO) << "=========the i: " << i;
 		pool = TAILQ_FIRST(&pool_mgr->free_pool_list_[i]);
@@ -198,7 +199,7 @@ void release_pool(pool_factory_t* factory, pool_t* pool) {
 	(*factory->release_pool)(factory, pool);
 }
 
-void pool_mgr_init(pool_mgr_t* pool_mgr, const pool_factory_policy_t* policy, size_t max_capacity) {
+void pool_manager_init(pool_mgr_t* pool_mgr, const pool_factory_policy_t* policy, size_t max_capacity) {
 	memset(pool_mgr, 0, sizeof(*pool_mgr));
 	pool_mgr->max_capacity_ = max_capacity;
 	pthread_mutex_init(&pool_mgr->mutex_, NULL);
@@ -222,7 +223,7 @@ void pool_mgr_init(pool_mgr_t* pool_mgr, const pool_factory_policy_t* policy, si
 
 }
 
-void pool_mgr_destroy(pool_mgr_t* pool_mgr) {
+void pool_manager_destroy(pool_mgr_t* pool_mgr) {
 
 }
 
@@ -243,6 +244,10 @@ const char* get_pool_name(pool_t* pool) {
 	return pool->name_;
 }
 
+pool_factory_t* get_pool_manager_factory(pool_mgr_t* pool_mgr) {
+	return &pool_mgr->factory_;
+}
+
 void* pool_alloc_from_chunk(pool_chunk_t* chunk, size_t size) {
 	if (chunk == NULL) {
 		return NULL;
@@ -261,7 +266,7 @@ void* pool_alloc_from_chunk(pool_chunk_t* chunk, size_t size) {
 
 	size_t chunk_size = (size_t)(chunk->end_ - chunk->cur_);
 	LOG(INFO) << "chunk size: " << chunk_size;
-
+	
 	if (chunk_size >= size) {
 		void* buf = chunk->cur_;
 		chunk->cur_ += size;

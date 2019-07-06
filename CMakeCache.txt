@@ -130,7 +130,7 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=rpcServer
+CMAKE_PROJECT_NAME:STATIC=rpc_server
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -185,10 +185,10 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 GFLAGS_DIR:PATH=/usr/local/lib/cmake/gflags
 
 //Value Computed by CMake
-rpcServer_BINARY_DIR:STATIC=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc
+rpc_server_BINARY_DIR:STATIC=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc
 
 //Value Computed by CMake
-rpcServer_SOURCE_DIR:STATIC=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc
+rpc_server_SOURCE_DIR:STATIC=/home/wangpeng/WorkSpaceForMe/PlatformForMe/MyCloud/rpc
 
 
 ########################
