@@ -22,7 +22,7 @@ private:
         ~DynamicThread();
 
     private:
-        DynamicThreadPool* pool_;
+        DynamicThreadPool* pool_;								/*the dynamic threadpool of threads*/
         std::unique_ptr<std::thread> thd_;
         void threadFunc();
     };
@@ -31,10 +31,10 @@ private:
     static void reapThreads(std::list<DynamicThread*>* tlist);
 
 private:
-    bool shutdown_;
-    int nthreads_;
-    int reserve_threads_;
-    int threads_waiting_;
+    bool shutdown_;												/*threadpool shutdown flag*/
+    int nthreads_;												/*threadpool current had threads number*/
+    int reserve_threads_;										/*initialize threads number*/
+    int threads_waiting_;										/*current idle threads number*/
 
     std::mutex mutex_;
     std::condition_variable  cv_;

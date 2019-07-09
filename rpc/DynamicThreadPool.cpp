@@ -43,6 +43,7 @@ void DynamicThreadPool::add(const std::function<void(void*)>& callback) {
     }
 }
 
+/*waitting for condition variable, unitl recv signal*/
 void DynamicThreadPool::threadFunc() {
     for (; ;) {
         std::unique_lock<std::mutex> lock(mutex_);
@@ -56,6 +57,7 @@ void DynamicThreadPool::threadFunc() {
             threads_waiting_ --;
         }
 
+		/*never carry lock on exec task*/
         if (!callbacks_.empty()) {
             auto cb = callbacks_.front();
             callbacks_.pop();
@@ -69,7 +71,7 @@ void DynamicThreadPool::threadFunc() {
 
 void DynamicThreadPool::reapThreads(std::list<DynamicThread*>* tlist) {
     for (auto t = tlist->begin(); t != tlist->end(); t = tlist->erase(t)) {
-        delete* t;
+        delete *t;
     }
 }
 
