@@ -28,13 +28,15 @@ DynamicThreadPool::~DynamicThreadPool() {
     reapThreads(&dead_threads_);
 }
 
-void DynamicThreadPool::add(const std::function<void(void*)>& callback) {
+void DynamicThreadPool::add(const std::function<void()>& callback) {
     std::lock_guard<std::mutex> lock(mutex_);
     callbacks_.push(callback);
     if (threads_waiting_ == 0) {
         nthreads_ ++;
+		LOG(INFO) << "the current threads: " << nthreads_;
         new DynamicThread(this);
     } else {
+		LOG(INFO) << "the current threads: " << nthreads_;
         cv_.notify_one();
     }
 
@@ -47,13 +49,14 @@ void DynamicThreadPool::add(const std::function<void(void*)>& callback) {
 void DynamicThreadPool::threadFunc() {
     for (; ;) {
         std::unique_lock<std::mutex> lock(mutex_);
-        while (!shutdown_ && callbacks_.empty()) {
+        if (!shutdown_ && callbacks_.empty()) {
             if (threads_waiting_ >= reserve_threads_) {
                 return;
             }
 
             threads_waiting_ ++;
             cv_.wait(lock);
+			/*it may be spurious wakeups, so we must check callbacks_ whether or not empty*/
             threads_waiting_ --;
         }
 
@@ -62,13 +65,14 @@ void DynamicThreadPool::threadFunc() {
             auto cb = callbacks_.front();
             callbacks_.pop();
             lock.unlock();
-            cb(NULL);
+            cb();
         } else if (shutdown_) {
             break;
         }
     }
 }
 
+/*traverse tlist and delete all thread in tlist*/
 void DynamicThreadPool::reapThreads(std::list<DynamicThread*>* tlist) {
     for (auto t = tlist->begin(); t != tlist->end(); t = tlist->erase(t)) {
         delete *t;
@@ -78,12 +82,17 @@ void DynamicThreadPool::reapThreads(std::list<DynamicThread*>* tlist) {
 void DynamicThreadPool::DynamicThread::threadFunc() {
     LOG(INFO) << "dynamic thread func";
     pool_->threadFunc();
+
+	/*thread exit, we should --nthreads_ and push it to dead_threads_*/
     std::unique_lock<std::mutex> lock(pool_->mutex_);
  //   std::lock_guard<std::mutex> lock(pool_->mutex_);
     pool_->nthreads_ --;
+
+	LOG(INFO) << "the current threads: " << pool_->nthreads_;
     pool_->dead_threads_.push_back(this);
 
     if (pool_->shutdown_ && (pool_->nthreads_ == 0)) {
+		LOG(INFO) << "111111111111111";
         pool_->shutdown_cv_.notify_one();
     }
 }
