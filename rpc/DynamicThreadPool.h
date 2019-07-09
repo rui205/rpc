@@ -10,7 +10,8 @@
 namespace rpc { 
 
 /*动态线程池在短时间内有大量的任务到来时，会创建远远高于预先设定的线程*/
-/*这样做的好处是，可以及时的处理每一个任务，提高效率。另一方面如果*/
+/*这样做的好处是，可以及时的处理每一个任务，提高效率。当线程获取不到任务的时候，会进行自动的销毁*/
+/*每次添加任务的最后，会检查需要销毁的线程，进行销毁，从而保证了添加一个任务之后，当前线程池内线程的合法性*/
 class DynamicThreadPool final: public ThreadPoolInterface {
 public:
     explicit DynamicThreadPool(int reserve_threads);
