@@ -5,4 +5,4 @@ Base on libevent2.1.8
 
 NOTICE: in developing
 
-If you find any bugs, lease let me know.
+If you find any bugs, please let me know.
