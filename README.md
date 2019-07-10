@@ -14,6 +14,7 @@ C++ rpc library, support(TCP, HTTP, RPC)
 * CentOS Linux 7.0
 * Gcc Version 4.8.5
 
-NOTICE: in developing
+## Notice
+* In developing
 
 If you find any bugs, please let me know.
