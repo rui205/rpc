@@ -13,6 +13,7 @@ Base on libevent2.1.8
 
 ## Testing Environment
 * CentOS Linux 7.0
+* Gcc Version 4.8.5
 
 NOTICE: in developing
 
