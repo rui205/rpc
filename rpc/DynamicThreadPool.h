@@ -17,6 +17,7 @@ public:
     explicit DynamicThreadPool(int reserve_threads);
     ~DynamicThreadPool();
     void add(const std::function<void()>& callback) override;
+	int getTaskQueueSize();
 
 private:
     class DynamicThread {
@@ -38,11 +39,12 @@ private:
     int nthreads_;												/*threadpool current had threads number*/
     int reserve_threads_;										/*initialize threads number*/
     int threads_waiting_;										/*current idle threads number*/
-
+	int max_core_threads_;										/*dynamic threadpool max threads number*/
+		
     std::mutex mutex_;
-    std::condition_variable  cv_;
-    std::condition_variable  shutdown_cv_;
-    std::queue<std::function<void()>> callbacks_;          /*task queue*/ 
+    std::condition_variable  cv_;								
+    std::condition_variable  shutdown_cv_;						/*condition variable for destroy dynamic threadpool*/
+    std::queue<std::function<void()>> callbacks_;               /*task queue*/
     std::list<DynamicThread*> dead_threads_;                    
 };
 

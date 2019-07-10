@@ -304,7 +304,7 @@ void* pool_allocate_find(pool_t* pool, size_t size) {
 		return NULL;
 	}
 
-	/*how many size for new chunk*/
+	/*How many size for new chunk*/
 	if (pool->incr_size_ < (size + sizeof(pool_chunk_t))) {
 		int count = (size + sizeof(pool_chunk_t) + pool->incr_size_ + POOL_ALIGNMENT) / pool->incr_size_;
 		chunk_size = pool->incr_size_ * count;

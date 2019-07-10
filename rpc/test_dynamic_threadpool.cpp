@@ -42,7 +42,9 @@ void test_dynamic_threadpool() {
 		});
 	}
 
-	sleep(20);
+	sleep(15);
+
+	LOG(INFO) << "queue size: " << threadpool->getTaskQueueSize();
 
 	LOG(INFO) << "total: " << total;
 }

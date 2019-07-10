@@ -1,3 +1,5 @@
+#include <unistd.h>
+
 #include "DynamicThreadPool.h"
 #include "glog/logging.h"
 
@@ -8,6 +10,7 @@ DynamicThreadPool::DynamicThreadPool(int reserve_threads) {
     nthreads_ = 0;
     threads_waiting_ = 0;
     reserve_threads_ = reserve_threads;
+	max_core_threads_ = 1000;
  
     for (int i = 0; i < reserve_threads_; ++ i) {
         std::lock_guard<std::mutex> lock(mutex_);
@@ -32,6 +35,9 @@ void DynamicThreadPool::add(const std::function<void()>& callback) {
     std::lock_guard<std::mutex> lock(mutex_);
     callbacks_.push(callback);
     if (threads_waiting_ == 0) {
+		if (nthreads_ > max_core_threads_) {
+			return;
+		}
         nthreads_ ++;
 		LOG(INFO) << "the current threads: " << nthreads_;
         new DynamicThread(this);
@@ -43,6 +49,10 @@ void DynamicThreadPool::add(const std::function<void()>& callback) {
     if (!dead_threads_.empty()) {
         reapThreads(&dead_threads_);
     }
+}
+
+int DynamicThreadPool::getTaskQueueSize() {
+	return callbacks_.size();
 }
 
 /*waitting for condition variable, unitl recv signal*/
@@ -88,7 +98,7 @@ void DynamicThreadPool::DynamicThread::threadFunc() {
  //   std::lock_guard<std::mutex> lock(pool_->mutex_);
     pool_->nthreads_ --;
 
-	LOG(INFO) << "the current threads: " << pool_->nthreads_;
+	LOG(INFO) << "11111the current threads: " << pool_->nthreads_;
     pool_->dead_threads_.push_back(this);
 
     if (pool_->shutdown_ && (pool_->nthreads_ == 0)) {
