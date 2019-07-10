@@ -3,12 +3,12 @@
 C++ rpc library, support(TCP, HTTP, RPC)
 
 ## Required Dependencies
-* [glog]
-* [gflags]
-* [hiredis]
-* [libmysqlclient]
-* [Libevent2.1.8]
-* [CMake]
+* glog
+* gflags
+* hiredis
+* libmysqlclient
+* Libevent2.1.8
+* CMake
 
 ## Testing Environment
 * CentOS Linux 7.0
