@@ -1,6 +1,6 @@
 # librpc
 
-C++ rpc library, support(TCP, HTTP, RPC)
+C++ rpc library
 
 ## Required Dependencies
 * glog
