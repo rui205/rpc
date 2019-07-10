@@ -1,7 +1,6 @@
-# libjsonrpc
+# librpc
 
-This framework provides TCP/JSON-RPC (remote procedure call) support for C++.
-Base on libevent2.1.8
+C++ rpc library, support(TCP, HTTP, RPC)
 
 ## Required Dependencies
 * [glog]
