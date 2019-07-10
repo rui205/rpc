@@ -14,6 +14,9 @@ C++ rpc library
 * CentOS Linux 7.0
 * Gcc Version 4.8.5
 
+## Examples
+* See the test_XXX file
+
 ## Notice
 * In developing
 
