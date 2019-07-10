@@ -8,7 +8,6 @@
 
 /*example for tcp server read and write*/
 /*the channel timeout 10s(closed)*/
-
 class TcpServerImpl final: public rpc::TcpServer {
 public:
 	TcpServerImpl(): rpc::TcpServer(std::string("0.0.0.0:9900"), 4) {

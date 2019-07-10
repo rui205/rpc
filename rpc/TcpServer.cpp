@@ -86,6 +86,7 @@ void TcpServer::Start() {
 		LOG(ERROR) << "the master event_base is nil";
 		return;
 	}
+
 	listener_ = evconnlistener_new_bind(master_->base_, Monitor, (void*)this, 
 						LEV_OPT_REUSEABLE | LEV_OPT_CLOSE_ON_FREE | LEV_OPT_REUSEABLE_PORT, 
 							65535, (struct sockaddr*)&baddr, sizeof(baddr));
