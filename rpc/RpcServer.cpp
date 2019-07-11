@@ -7,7 +7,7 @@ RpcServer::RpcServer(std::string addr, int nthreads): TcpServer(addr, nthreads) 
 }
 
 RpcServer::~RpcServer() {
-
+	/*delete name/sevicre mapping*/
 }
 
 void RpcServer::Read(Channel* chan, void* arg) {

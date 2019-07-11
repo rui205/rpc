@@ -8,17 +8,19 @@
 
 namespace rpc {
 
+class TcpClient;
 class TcpServer;
 
 typedef struct thread {
 	pthread_t tid_;									/*thread id*/
-	struct event_base* base_;		
+	struct event_base* base_;						/*one loop peer thread*/
 	struct event notify_event_;		
-	int notify_recv_fd_;			
-	int notify_send_fd_;			
+	int notify_recv_fd_;							/*recv notify*/
+	int notify_send_fd_;							/*send notify*/
 	TaskQueue* task_queue_; 						/*task queue*/
 													/*dao*/
 	union {
+		TcpClient* client_;							/*the thread owner*/
 		TcpServer* server_;
 	};
 } thread_t;
