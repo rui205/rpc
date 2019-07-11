@@ -31,7 +31,7 @@ private:
 	std::string ip_;
 	int port_;
 	thread_t* thr_;
-	Channel channel;
+	Channel* channel;
 };
 
 }/*end namespace rpc*/
