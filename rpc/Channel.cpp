@@ -34,14 +34,17 @@ int Channel::getChannelFd() {
 }
 
 /*bufferevent IO operation*/
+
 void Channel::setBufferevent(struct bufferevent* bev) {
     bev_ = bev;
 }
 
+/*Get channel internal bufferevent*/
 struct bufferevent* Channel::getBufferevent() {
 	return bev_;
 }
 
+/*Get channel bufferevent input buffer length*/
 int Channel::getReadBufferLength() {
     return evbuffer_get_length(bufferevent_get_input(bev_));
 }
@@ -58,6 +61,7 @@ int Channel::copyToBuffer(char* buffer, int length) {
     return evbuffer_copyout(bufferevent_get_input(bev_), buffer, length);
 }
 
+/*If success return 0, others failed*/
 int Channel::appendToBuffer(char* buffer, int length) {
     return evbuffer_add(bufferevent_get_output(bev_), buffer, length);
 }

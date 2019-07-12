@@ -65,6 +65,8 @@ public:
 
 		LOG(INFO) << "buffer:\n" << buffer;
 
+		rc = chan->appendToBuffer(buffer, pkgTotal);
+
 		// doing
 		//
 		//
